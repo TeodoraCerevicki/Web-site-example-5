@@ -1,0 +1,638 @@
+@import 'login';
+@import 'mixins';
+@import 'variables';
+.profile {
+    // wrapper
+    .wrapper {
+        display: flex;
+        }
+    // wrapper
+    
+    // sidebar
+    .sidebar {
+        background: $white;
+        padding: 30px 25px;
+        text-align: center;
+        width: 70px;
+    }
+    // sidebar
+    
+
+    // main-content
+    .main-content {
+        background-color: $very-light-blue;
+        flex: 2 1 0;
+        padding: 40px 15px;
+    }
+
+//    //////////////////////////////////////////////////////////////////////
+
+//     Proflie page header has 4 parts:
+//     1. cover-image
+//     2. profile-page-nav
+//     3. profille-user-info
+//     4. contact user
+
+        // more detils:
+//     1. cover image holds only background image
+//
+//     2. profile nav is display:flex and it holds two ul lists so they can be position as defined
+//        has 3 states of a tag:
+//        1. defaul - grey color
+//        2. hover - black color
+//        3. active - black color
+//
+//     3. profille-user-info is position absolut and it has 2 parts:
+//         1. user-rounded-image
+//         2. user-info-text-wrapper
+
+//     ///////////////////////////////////////////////////////////////////// 
+
+    // profile-page-header
+    .profile-page-header {
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+        border: 2px solid $very-light-grey;
+        border-radius: 3px;
+        margin: 0 15px;
+        overflow: hidden; 
+        position: relative;
+        // cover-image
+        .cover-image {
+            background-image: url('../img/users-images/james.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-y: 28%;
+            height: 300px;
+        }
+        // cover-image
+
+        // profile-page-nav
+        .profile-page-nav {
+            align-items: center;
+            background-color: $white;
+            display: flex;
+            font-weight: 700;
+            justify-content: space-between;
+            padding: 40px 25px 38px;
+            text-transform: capitalize;
+        }
+
+        // profile-page-nav li
+        .profile-page-nav li{
+            display: inline-block;
+            padding: 0 35px;
+        }
+        // profile-page-nav li
+
+        // profile-page-nav a
+        .profile-page-nav a {
+            color: $light-grey;
+            transition: color .3s;
+            i {
+                font-size: 8px
+            }
+            &:hover {
+                color: $black;
+            }
+            &.active {
+                color: $black;
+            }
+        }
+        // profile-page-nav a
+        // profile-page-nav
+
+        // profile-user-info
+        .profile-user-info {
+            margin-top: 5px;
+            position: absolute;
+            top: 183px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        // profile-user-info h1
+        .profile-user-info h1 {
+            color: $black;
+            font-size: 26px;
+            text-transform: capitalize;
+        }
+        // profile-user-info h1
+
+        // profile-user-info label
+        .profile-user-info label {
+            color: $light-grey;
+        }
+        // profile-user-info label
+
+        // contact-user
+        .contact-user {
+            position: absolute;
+            right: 20px;
+            top: 266px;
+        }
+        // contact-user
+
+        // contact-user-icon-wrapper
+        .contact-user-icon-wrapper {
+            display: inline-block;
+        }
+        .contact-user-icon-wrapper a {    
+            border-radius: 50%;
+            color: #fff;
+            display: inline-block;
+            height: 50px;
+            margin: 0 10px;
+            padding: 0 10px;
+            position: relative;
+            text-align: center;
+            transition: transform .3s;
+            width: 50px;
+            &:hover {
+                transform: scale(1.2);
+            }
+
+            // send-request color
+            &.send-request {
+                background-color: $twitter-blue;
+            }
+
+            // send-message color
+            &.send-message {
+                background-color: $less-dark-purple;
+            }
+
+            // share color
+            &.share {
+                background-color: $orange;
+            }
+        }
+
+        // contact-user-icon-wrapper  i
+        .contact-user-icon-wrapper  i {
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        // contact-user-icon-wrapper  i
+
+        // contact-user-icon-wrapper
+
+        // profile-user-info
+
+        // user-rounded-image
+        .user-rounded-image {
+            border: 3px solid $white;
+            margin: 0 auto;
+            height: 135px;
+            width: 135px;
+        }
+        // user-rounded-image
+    }
+    // profile-page-header
+//////////////////////////////////////////////////////////////////////////////////
+        // End of profile-page-headert
+//////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////////////
+        // profile-content-wrapper
+//////////////////////////////////////////////////////////////////////////////////
+    
+    .profile-content-wrapper {
+        padding: 15px 0;
+    }
+
+    // timeline-recent
+    .timeline-container {
+        display: flex;
+        // timeline-recent
+        .timeline-recent {
+            flex: 1 1 0;
+        }
+        // timeline-recent
+
+        // timeline-posts
+        .timeline-posts {
+            flex: 2 1 0;
+        }
+        // timeline-posts
+    }
+    // timeline-recent
+
+    // timeline-posts
+     //////////////////////////////////////////////////////////////////////////////////
+    // Style for header post
+    //////////////////////////////////////////////////////////////////////////////////
+        
+    // post-article
+    .post-article {
+        overflow: visible;
+        padding: 0 25px;
+        position: relative;
+        & > div, footer {
+            padding-top: 25px;
+        }
+    }
+    // post-article
+
+    .post-header {
+        padding-top: 25px;
+    }
+    // post-header-item
+    .post-header-item {
+        display: flex;
+    }
+    // post-header-item
+
+    // user-name
+    .user-name {    
+        margin-left: 7px;
+        margin-top: 6px;
+        label {
+            color: $light-grey;
+            font-size: 13px;
+        }
+    }
+    // user-name
+
+    // user-rounded-image
+    .post-header-item .user-rounded-image {
+        border-color: $white;
+        height: 40px;
+        width: 40px;
+    }
+
+    // shared-media
+    .shared-media {
+        color: $light-grey;
+        margin-left: 3px;
+        text-transform: none;
+        a {
+            color: $orange;
+        }
+    }
+    // shared-media
+
+    // user-rounded-image
+    //////////////////////////////////////////////////////////////////////////////////
+        // End of Style for header post
+    //////////////////////////////////////////////////////////////////////////////////
+        
+    // post-text
+    .post-text {
+        color: $black;
+    }
+    // post-text
+
+    // post-media
+    .post-media {
+        border-radius: 3px;
+        line-height: 0;
+        margin-top: 20px;
+        overflow: hidden;
+        iframe {
+            height: 315px;
+            width: 100%;
+        }
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    // post-media
+
+    // .list-of-react-options
+    .list-of-react-options {
+        position: absolute;
+        right: -15px;
+        top: 16px;
+    }
+    // .list-of-react-options
+
+    // list-of-react-options-item
+    .list-of-react-options-item {
+        background-color: $light-grey;
+        border-radius: 50%;
+        color: $white;
+        cursor: pointer;
+        height: 30px;
+        margin-bottom: 7px;
+        position: relative;
+        width: 30px;
+        i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    // list-of-react-options-item
+
+    // reaction-footer
+    .reaction-footer {
+        border-top: 1px solid $light-grey;
+    }
+
+    .reaction-footer-flex-wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+    // number-of-reactions
+    .number-of-reactions {
+        color: $light-grey;
+        margin-right: 10px;
+        i {
+            font-size: 18px;
+        }
+        span {
+            font-size: 14px;
+        }
+        // &.likes {
+        //     color: $orange;
+        // }
+        // &.message {
+        //     color: $twitter-blue;
+        // }
+        // &.share {
+        //     color: $less-dark-purple;
+        // }
+
+        &.liked {
+            color: $orange;
+        }
+    }
+    // number-of-reactions
+
+    // like-section
+    .like-section {
+        display: flex;
+    }
+    // like-section
+    // users-image-holder
+    .users-image-holder {
+        display: flex;
+        margin-right: 10px;
+    }
+    // users-image-holder
+
+    // user-rounded-image
+    .reaction-footer .user-rounded-image {border-color: $white;
+        height: 30px;
+        width: 30px;
+        margin-left: -10px;          
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    // user-rounded-image
+
+    // list-of-users-that-liked
+    .list-of-users-that-liked {
+        font-size: 13.5px;
+        line-height: 1;
+        max-width: 120px;
+        a {
+            color: $black;
+            font-weight: 700;
+        }
+        span {
+            color: $light-grey;
+        }
+    }
+    // list-of-users-that-liked
+
+    // message-share-section
+    .message-share-section {
+        display: flex;
+        justify-content: flex-end;
+
+        .number-of-reactions {
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        // number-of-reactions
+    }
+    // message-share-section
+
+    // external-post
+    .external-post {
+        border-left: 1px solid $light-grey;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        .post-header {
+            position: relative;
+        }
+        .post-text {
+            padding: 12px 0;
+        }
+        .side-circle-icon-wrapper {
+            left: -25px;
+        }
+    }
+    // external-post
+
+    // comment-section
+    .comment-section {
+
+    }
+
+    // comment
+    .comment {
+        background-color: $darker-white;
+        border-bottom: 1px solid $light-grey;
+        margin: 0 -25px;
+        // margin-top: 20px;
+        padding:  0 25px;
+        &:first-child {
+            border-top: 1px solid $light-grey;
+        }      
+    }
+    // comment
+
+    .comment .user-rounded-image {
+        height: 35px;
+        width: 35px;
+    } // comment .user-rounded-image
+
+    .comment .post-content {
+        padding-top: 12px;
+    } // comment .post-content 
+
+    // comment-footer
+    .comment-footer {
+        align-items: center;
+        display: flex;
+        padding: 12px 0; 
+        .replay {
+            color: $black;
+            font-size: 13.5px;
+        }
+    }
+    // comment-footer
+
+    // sub-comment
+    .sub-comment {
+        margin-top: 0;
+        padding-left: 35px;
+        position: relative;
+    }
+    .sub-comment-container {
+        border-left: 1px solid $light-grey;
+        padding-left: 25px;
+    }
+
+    .side-circle-icon-wrapper {
+        position: absolute;
+        top: 33px;
+        left: 31px;
+        i {
+            background-color: $darker-white;
+            border-radius: 50%;
+            height: 9px;
+            color: $light-grey;
+            font-size: 10px;
+            width: 8px;
+        }
+    }
+    // sub-comment
+
+    // load-more
+    .load-more-comments {
+        text-align: center;
+        span {
+            color: $black;
+            font-size: 13px
+        }
+        i {
+            color: $orange;
+            font-size: 9px;
+            padding: 15px 0; 
+        }
+    }
+    // load-more
+
+    // add-comment
+    .add-comment {
+        border-top: 1px solid $light-grey;
+        display: flex;
+        margin-top: 0;
+        padding: 25px;
+    }
+
+    // text-area-wrapper
+    .text-area-wrapper {
+        align-items: center;
+        border: 1px solid $light-grey;
+        border-radius: 3px;
+        color: $black;
+        display: flex;
+        font-size: 13px;
+        height: 53px;
+        justify-content: space-between;
+        margin-left: 5px;
+        overflow: hidden;
+        padding: 0 15px;
+        width: 100%;
+    }
+        textarea {
+            background-color: transparent;
+            border: none;
+            height: 100%;
+            padding: 10px 0;
+            resize: none;
+            width: 100%;
+        }
+        textarea:focus {
+            outline: none;
+        }
+
+        .capture-icon {
+            color: $light-grey;
+            font-size: 20px;
+            margin-left: 11px;
+            transition: color .3s;
+            &:hover {
+                color: $black;
+            }
+        }
+    
+    // text-area-wrapper
+    
+    // add-comment
+
+    // comment-section
+
+    // reaction-footer
+
+    // load-more-posts
+    .load-more-posts {
+        background-color: rgba(204, 204, 204, .7);
+        border-radius: 50%;
+        color: $white;
+        display: block;
+        font-size: 5px;
+        height: 50px;
+        margin: 0 auto;
+        margin-top: 30px;
+        position: relative;
+        transition: transform .3s;
+        width: 50px;
+        &:hover {
+            transform: scale(1.2);
+        }
+
+        .load-more-posts-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    // load-more-posts
+    
+    // timeline-posts
+
+//////////////////////////////////////////////////////////////////////////////////
+        // End of profile-content-wrapper
+//////////////////////////////////////////////////////////////////////////////////
+
+    // main-content
+
+//////////////////////////////////////////////////////////////////////////////////
+        // chat-section
+//////////////////////////////////////////////////////////////////////////////////
+    
+    .chat-section {
+        // user-online-status-wrapper
+        .user-online-status-wrapper {
+            margin: 15px 0;
+            // user-rounded-image
+            .user-rounded-image {
+                border-color: $white;
+                height: 38px;
+                width: 38px;
+            }
+            // user-rounded-image
+
+            // online-status
+            .online-status {
+                border-color: $white;
+            }
+            // online-status
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    // user-online-status-wrapper
+    }
+//////////////////////////////////////////////////////////////////////////////////
+        // End of chat-section
+//////////////////////////////////////////////////////////////////////////////////
+}
+// profile
