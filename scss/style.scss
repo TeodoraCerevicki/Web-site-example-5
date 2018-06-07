@@ -24,45 +24,272 @@
 }
 // delete
 
-.box-widget {
-    background-color: $white;
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-    border: 2px solid $very-light-grey;
-    border-radius: 3px;
-    margin: 15px;
-    min-width: 270px;
-    overflow: hidden;   
-    .header, .box-widget-item {
-        padding: 25px 25px 18px;
+// .circle-icon
+.circle-icon-component {
+    background-color: $light-grey;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    i {
+        color: $white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    // header
-    header {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        h2 {
-            color: $black;
-            font-size: 14px;
+    &.small {
+        height: 30px;
+        width: 30px;
+        i {
+            font-size: 15px;
+        }
+    } // small 
+    &.large {
+        height: 45px;
+        width: 45px;
+        i {
+            font-size: 22px;
+        }
+    } // large
+
+    // send-request color
+    &.twitter-blue {
+        background-color: $twitter-blue;
+    }
+
+    // send-message color
+    &.purple {
+        background-color: $less-dark-purple;
+    }
+
+    // share color
+    &.orange {
+        background-color: $orange;
+    }
+} // .circle-icon
+
+
+// .circle-img
+.circle-img-component {
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    img {
+        height: 100%;
+        width: 100%;
+    }
+    &.extra-small {
+        height: 30px;
+        width: 30px;
+    }
+    &.small {
+        height: 35px;
+        width: 35px;
+    }
+    &.medium {
+        height: 45px;
+        width: 45px;
+    }
+    &.large {
+        height: 130px;
+        width: 130px;
+    }
+
+}
+// .circle-img
+
+// .rounded-corner-img 
+.rounded-corner-component {
+    border-radius: 3px;
+    overflow: hidden;
+    img {
+        height: 100%;
+        width: 100%;
+    }
+    &.small {
+        height: 35px;
+        width: 35px;
+    }
+
+    &.medium {
+        height: 45px;
+        width: 45px;
+    }
+
+    &.large{
+        height: 65px;
+        width: 65px;
+    }
+}
+// .rounded-corner-img 
+
+// overlapping 
+.overlapping {
+    display: flex;
+    & > div {
+        border: 2px solid $white;
+        margin-left: -10px;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
+// overlapping 
+
+// online-status-circle 
+.online-status-circle {
+    border: 2px solid;
+    border-radius: 50%;
+    font-size: 11px;
+    height: 11px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    z-index: 1;
+
+    &.active {
+        background-color: $success-green;
+    }
+
+    &.busy {
+        background-color: $busy-yellow;
+    }
+
+    &.offline {
+        background-color: $grey;
+    }
+
+    &.border-white {
+        border-color: $white;
+    }
+
+    &.border-purple {
+        border-color: $dark-purple;
+    }
+}
+// online-status-circle 
+
+// notification-component
+.notification-component {
+    background-color: $orange;
+    border-radius: 50%;
+    color: #fff;
+    height: 18px;
+    text-align: center;
+    position: absolute;
+    width: 18px;
+    top: -3px;
+    right: 5px;
+    span {
+        font-size: 12px;
+        font-weight: 700;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+}
+// notification-component
+
+// image-text-component
+.image-text-component {
+    align-items: center;
+    display: flex;
+    position: relative;
+    .image {
+        margin-right: 7px;
+    }
+    .text {
+        margin-right: 15px;
+        text-transform: capitalize;
+    }
+    .title {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: capitalize;
+    }
+    label {
+        color: $light-grey;
+        display: block;
+        font-size: 12px;
+        &.uppercase {
+            text-transform: uppercase;
+        }
+        &.capitalize {
             text-transform: capitalize;
         }
     }
-    // header
 
-    // drop-down-icon-wrapper
-    .drop-down-icon-wrapper {
+     
+    .shared-media {
         color: $light-grey;
-        font-size: 8px;
-        transition: color .3s;
-        &:hover {
-            color: $black;
-            .drop-down-list {
-                display: block;
-                opacity: 1;
-            }
+        margin-left: 3px;
+        text-transform: none;
+        a {
+            color: $orange;
         }
     }
-    // drop-down-icon-wrapper
+    // shared-media
+}
+// image-text-component
+
+// info-row-component
+.info-row-component {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+    &.align-top {
+        align-items: flex-start;
+    }
+
+    &.align-center {
+        align-items: center;
+    }
+}
+// info-row-component
+
+// user-name-popup
+.tooltip {
+    background-color: $transparent-black;
+    border-radius: 3px;
+    color: $very-light-grey;
+    display: none;
+    font-size: 10px;
+    line-height: 1.3;
+    min-width: 100px;
+    padding: 8px;
+    position: absolute;
+    top: -33px;
+    right: -41px;
+    text-transform: uppercase;
+    &:after {
+        font-family: 'FontAwesome';
+        color: $transparent-black;
+        content: '\f0d7';
+        font-size: 22px;
+        position: absolute;
+        left: 50%;
+        top: 17px;
+        transform: translateX(-50%);
+    } // after
+}
+// user-name-popup
+
+
+// drop-down-icon-wrapper
+.drop-down-icon-wrapper {
+    color: $light-grey;
+    font-size: 8px;
+    transition: color .3s;
+    &:hover {
+        color: $black;
+        .drop-down-list {
+            display: block;
+            opacity: 1;
+        }
+    } // hover
 
     // drop-down-list
     .drop-down-list {
@@ -80,32 +307,72 @@
         right: 0;
         text-transform: capitalize;
         transition: opacity .9s;
-         z-index: 1;
-    }
-    // drop-down-list
+        z-index: 1;
 
-    // drop-down-list
-    .drop-down-list li {
-        margin-bottom: 15px;
-        &:last-child {
-            margin-bottom: none;
+        li {
+            margin-bottom: 15px;
+            &:last-child {
+                margin-bottom: none;
+            }
         }
     }
     // drop-down-list
+}
+// drop-down-icon-wrapper
+
+// poll-bar-component
+.poll-bar-component {
+    margin-top: 10px;
+
+    .full-width-bar {
+        background-color: $light-grey;
+        border-radius: 5px;
+        height: 5px;
+        position: relative;
+        width: 100%;
+    }  
+    .current-poll-bar {
+        background-color: $orange;
+        border-radius: 5px;
+        height: 5px;
+        position: absolute;
+    }
+
+    .full {
+        width: 100%;
+    }
+
+    .half {
+        width: 50%;
+    }
+}
+// poll-bar-component
+
+.box-widget {
+    background-color: $white;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+    border: 2px solid $very-light-grey;
+    border-radius: 3px;
+    margin: 15px;
+    min-width: 270px;
+    //overflow: hidden;   
+    .header {
+        padding: 25px 25px 18px;
+        h2 {
+            color: $black;
+            font-size: 14px;
+            text-transform: capitalize;
+        }
+    }
+    // header
 
     // box-widget-item
     .box-widget-item {
         border-top: 1px solid $very-light-grey;
+        padding: 16px;
     }
     // box-widget-item
 
-    //////////////////////////////////////////////////////////////////////////////////
-        // Style for post
-    //////////////////////////////////////////////////////////////////////////////////
-
-    //////////////////////////////////////////////////////////////////////////////////
-        // End of Style for post
-   /////////////////////////////////////////////////////////////////////////////////
 }
 
 
@@ -184,8 +451,34 @@ input {
             left: -2px;
     }
 }
+
+.radio-button-component {
+    input[type="radio"] {
+        border: 1px solid $grey;
+        border-radius: 50%;
+        opacity: 0;
+        margin: 0;
+        width: 0;
+    }
+    label {
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        padding-left: 24px;
+        position: relative;
+    }
+    input:checked + label:before {
+        color: #f76927;
+        font-family: 'FontAwesome';
+        font-size: 9px;
+        content: '\f111';
+        position: absolute;   
+        top: 2px;
+        left: 0.5px;
+    }
+}
 //////////////////////////////////////////////////////////////////////////////////
-        // checkbox-component
+        // end of checkbox-component
 //////////////////////////////////////////////////////////////////////////////////
 
 // button-component
@@ -204,18 +497,6 @@ input {
 // button-component
 
 
-// user-rounded-image
-.user-rounded-image {
-    border: 2px solid;
-    border-radius: 50%;
-    overflow: hidden;
-    img {
-        height: 100%;
-        width: 100%;
-    }
-}
-// user-rounded-image
-
     // icon-wrapper for home-nav sidebar
     /////////////////////////////////////////////////////////////////////////////////////////////
     // icon has 3 states:
@@ -223,7 +504,7 @@ input {
     // 2. hover with orange color
     // 3. active with orange color
     ////////////////////////////////////////////////////////////////////////////////////////////
-    .icon-wrapper {
+    .sidebar-icon-wrapper {
         color: $grey;
         font-size: 23px;
         transition: color .3s;
@@ -252,73 +533,7 @@ input {
 // busy: when user is busy, has color yellow
 // offline: when user is offline, has color grey 
 ////////////////////////////////////////////////////////////////////////////////////////////
-// user-online-status-wrapper
-.user-online-status-wrapper {
-    cursor: pointer;
-    position: relative;
-    // online-status
-    .online-status {
-        border: 2px solid;
-        border-radius: 50%;
-        font-size: 11px;
-        height: 11px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 10px;
-        // active
-        &.active {
-            background-color: $success-green;
-        }
-        // active
 
-        // busy
-        &.busy {
-            background-color: $busy-yellow;
-        }
-        // busy
-
-        // offline
-        &.offline {
-            background-color: $grey;
-        }
-        // offline
-    }
-    // online-status
-
-    // user-name-popup
-    .user-name-popup {
-        background-color: $transparent-black;
-        border-radius: 3px;
-        color: $very-light-grey;
-        display: none;
-        font-size: 12px;
-        line-height: 1.3;
-        min-width: 100px;
-        padding: 8px;
-        position: absolute;
-        top: 0;
-        right: 40px;
-        text-transform: capitalize;
-        &:after {
-            font-family: 'FontAwesome';
-            color: $transparent-black;
-            content: '\f0da';
-            font-size: 22px;
-            position: absolute;
-            right: -9px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-    }
-    // user-name-popup
-    &:hover{
-        .user-name-popup {
-            display: block;
-        }
-    }
-}
-// user-online-status-wrapper
 
 // main-nav-bar
 .main-nav-bar {
@@ -418,84 +633,20 @@ input {
         // icon
     }
     // notification-icon-wrapper
-    
-    // has-notification
-    .has-notification {
 
-        // notification-number
-        .notification-number {
-            background-color: $orange;
-            border-radius: 50%;
-            color: #fff;
-            height: 18px;
-            text-align: center;
-            position: absolute;
-            width: 18px;
-            top: -3px;
-            right: 5px;
-            span {
-                font-size: 12px;
-                font-weight: 700;
-                position: absolute;
-                top: 5px;
-                left: 5px;
-            }
-        }
-        // notification-number
-
-        // icon
-        .icon {
-            color: $white;
-        }
-        // icon
-    }
-    // has-notification
-    // notification-bar
 
     // user-profile-settings
     .user-profile-settings {
         display: flex;
         align-items: center;
+        span {
+            color: $white;
+        }
     }
     // user-profile-settings
 
-    // user-online-status-wrapper
-    .user-online-status-wrapper {
-        // user-rounded-image
-        .user-rounded-image {
-            border-color: $dark-purple;
-            height: 38px;
-            width: 38px;
-        }
-        // user-rounded-image
-
-        // online-status
-        .online-status {
-            border-color: $dark-purple;
-        }
-        // online-status
-    }
-    // user-online-status-wrapper
-
-    // user-name
-    .user-name {
-        margin: 0 15px 0 7px;
-        .full-name {
-            color: $white;
-            font-weight: 700;
-            text-transform: capitalize;
-        }
-        span {
-            color: $grey;
-            display: block;
-            font-size: 13px;
-            text-transform: uppercase;
-        }
-    }
-    // user-name
-
     // dropdown-icon-wrapper
-    .dropdown-icon-wrapper {
+    i {
         color: $grey;
         transition: color .3s;
 

@@ -60,13 +60,6 @@
             <!-- notification-icon-wrapper -->
             <div class="notification-icon-wrapper">
                 <a href="">
-
-                    <!-- notification-number -->
-                    <div class="notification-number">
-                        <span></span>
-                    </div>
-                    <!-- notification-number -->
-
                     <!-- icon -->
                     <div class="icon">
                         <i class="fa fa-smile-o" aria-hidden="true"></i>
@@ -77,11 +70,11 @@
             <!-- notification-icon-wrapper -->
 
             <!-- notification-icon-wrapper -->
-            <div class="notification-icon-wrapper has-notification">
+            <div class="notification-icon-wrapper">
                 <a href="">
 
                     <!-- notification-number -->
-                    <div class="notification-number">
+                    <div class="notification-component">
                         <span>8</span>
                     </div>
                     <!-- notification-number -->
@@ -101,10 +94,6 @@
                 <a href="">
 
                     <!-- notification-number -->
-                    <div class="notification-number">
-                        <span></span>
-                    </div>
-                    <!-- notification-number -->
 
                     <!-- icon -->
                     <div class="icon">
@@ -120,41 +109,46 @@
         <!-- user-profile-settings -->
         <div class="user-profile-settings">
 
-            <!-- user-online-status-wrapper -->
-            <div class="user-online-status-wrapper">
+            <div class="info-row-component align-center">
 
-                <!-- user-rounded-image -->
-                <div class="user-rounded-image">
-                    <img src="../img/users-images/profile-image.png" alt="profile image" />
+                <!-- image-text-component -->
+                <div class="image-text-component">
+
+                    <div class="image">
+
+                        <!-- online-status-component -->
+                        <div class="online-status-circle border-purple active">
+                        </div>
+                        <!-- online-status-component -->
+
+                        <!-- circle-img-component -->
+                        <div class="circle-img-component small">
+                            <img src="../img/users-images/profile-image.png" alt="profile image" />
+                        </div>
+                        <!-- circle-img-component -->
+                    </div>
+
+                    <!-- text-->
+                    <div class="text">
+
+                        <span class="title">
+                            <a href="">james hetfield</a>
+                        </span>
+
+                        <label class="uppercase">papa het</label>
+
+                    </div>
+                    <!-- text -->
                 </div>
-                <!-- user-rounded-image -->
+                <!-- image-text-component -->
 
-                <!-- online-status -->
-                <div class="online-status active">
 
+                <!-- dropdown-icon-wrapper -->
+                <div class="dropdown-icon-wrapper">
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
                 </div>
-                <!-- online-status -->
-
+                <!-- dropdown-icon-wrapper -->
             </div>
-            <!-- user-online-status-wrapper -->
-
-            <!-- user-name -->
-            <div class="user-name">
-                <!-- full-name -->
-                <span class="full-name">james hetfield</span>
-                <!-- full-name-->
-
-                <!-- nickname -->
-                <span class="nickname">papa het</span>
-                <!-- nickname -->
-            </div>
-            <!-- user-name -->
-
-            <!-- dropdown-icon-wrapper -->
-            <div class="dropdown-icon-wrapper">
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
-            </div>
-            <!-- dropdown-icon-wrapper -->
 
         </div>
         <!-- user-profile-settings -->
@@ -177,21 +171,18 @@
         <!-- home-nav -->
         <aside class="home-nav sidebar">
 
-            <!-- icon-wrapper -->
-            <div class="icon-wrapper active">
-                <a href="">
-                    <i class="fa fa-bullhorn" aria-hidden="true"></i>
-                </a>
-            </div>
-            <!-- icon-wrapper -->
-
-            <!-- icon-wrapper -->
-            <div class="icon-wrapper">
-                <a href="">
-                    <i class="fa fa-comments-o " aria-hidden="true"></i>
-                </a>
-            </div>
-            <!-- icon-wrapper -->
+            <ul>
+                <li class="sidebar-icon-wrapper active">
+                    <a href="">
+                        <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="sidebar-icon-wrapper ">
+                    <a href="">
+                        <i class="fa fa-comments-o " aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
 
         </aside>
         <!-- home-nav -->
@@ -261,11 +252,11 @@
                 <!-- profile-user-info -->
                 <div class="profile-user-info">
 
-                    <!-- user-rounded-image -->
-                    <div class="user-rounded-image">
+                    <!-- circle-img-component -->
+                    <div class="circle-img-component large border">
                         <img src="../img/users-images/profile-image.png" alt="">
                     </div>
-                    <!-- user-rounded-image -->
+                    <!-- circle-img-component -->
 
                     <!-- user-info-text-wrapper -->
                     <div class="user-info-text-wrapper">
@@ -282,7 +273,7 @@
                     <ul>
                         <!-- contact-user-icon-wrapper -->
                         <li class="contact-user-icon-wrapper">
-                            <a href="" class="send-request">
+                            <a href="" class="circle-icon-component twitter-blue large">
                                 <i class="fa fa-user-plus" aria-hidden="true"></i>
                             </a>
                         </li>
@@ -290,7 +281,7 @@
 
                         <!-- contact-user-icon-wrapper -->
                         <li class="contact-user-icon-wrapper ">
-                            <a href="" class="send-message">
+                            <a href="" class="circle-icon-component purple large">
                                 <i class="fa fa-commenting-o" aria-hidden="true"></i>
                             </a>
                         </li>
@@ -298,8 +289,8 @@
 
                         <!-- contact-user-icon-wrapper -->
                         <li class="contact-user-icon-wrapper share">
-                            <a href="" class="share">
-                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                            <a href="" class="circle-icon-component orange large">
+                                <i class="fa fa-sliders" aria-hidden="true"></i>
                             </a>
                         </li>
                         <!-- contact-user-icon-wrapper -->
@@ -323,26 +314,486 @@
                     <!-- timeline-recent -->
                     <div class="timeline-recent">
                         <!-- box-widget -->
-                        <aside class="box-widget">
+                        <aside class="box-widget profile-intro">
                             <!-- header -->
                             <header class="header">
-                                <h2>profile intro</h2>
-                                <!-- drop-down-icon-wrapper -->
-                                <div class="drop-down-icon-wrapper">
-                                    <a href="">
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                    </a>
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>profile intro</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
                                 </div>
-                                <!-- drop-down-icon-wrapper -->
+
                             </header>
                             <!-- header -->
+
                             <div class="box-widget-item">
-                                some random txt
+
+                                <div class="content-holder">
+                                    <h3>about me:</h3>
+                                    <p>
+                                        Hi, I’m James, I’m 36 and I work as a Digital Designer for the “Daydreams” Agency in Pier 56.
+                                    </p>
+                                </div>
+
+                                <div class="content-holder">
+                                    <h3>Favourite TV Shows:</h3>
+                                    <p>
+                                        Hi, I’m James, I’m 36 and I work as a Digital Designer for the “Daydreams” Agency in Pier 56.
+                                    </p>
+                                </div>
+
+                                <div class="content-holder">
+                                    <h3>Favourite Music Bands / Artists:</h3>
+                                    <p>
+                                        Hi, I’m James, I’m 36 and I work as a Digital Designer for the “Daydreams” Agency in Pier 56.
+                                    </p>
+                                </div>
+
+
+                                <div class="content-holder">
+                                    <h3>other networks:</h3>
+
+                                    <ul>
+                                        <li>
+                                            <a href="" class="social-links">
+                                                <i class="fa fa-facebook" aria-hidden="true"></i>
+                                                facebook
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="social-links">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                                twitter
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" class="social-links">
+                                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                                                instagram
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </aside>
                         <!-- box-widget -->
+
+                        <!-- box-widget -->
+                        <aside class="box-widget badges">
+                            <!-- header -->
+                            <header class="header">
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>James’s Badges</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </header>
+                            <!-- header -->
+
+                            <div class="box-widget-item">
+                                <ul class="spacing">
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                        <div class="notification-component">
+                                            <span>8</span>
+                                        </div>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/badges/dabar.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </aside>
+                        <!-- box-widget -->
+
+                        <!-- box-widget -->
+                        <aside class="box-widget spotify">
+                            <!-- header -->
+                            <header class="header">
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>my spotify playlist</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </header>
+                            <!-- header -->
+
+                            <div class="box-widget-item">
+                                <ul>
+                                    <li class="content-holder">
+                                        <span class="number-of-song">1</span>
+
+                                        <div class="info-row-component align-top">
+
+                                            <div class="image-text-component">
+                                                <div class="image">
+
+                                                    <!-- circle-img-component -->
+                                                    <a href="" class="rounded-corner-component small">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/FooFighters-FooFighters.jpg/220px-FooFighters-FooFighters.jpg"
+                                                            alt="album cover">
+                                                    </a>
+                                                    <!-- circle-img-component -->
+                                                </div>
+
+                                                <a href="" class="text">
+                                                    <span>pretender</span>
+
+                                                    <label for="" class="time-of-post">
+                                                        kung fighters
+                                                    </label>
+                                                </a>
+                                            </div>
+
+                                            <div class="song-length">
+                                                <span class="time">4:31</span>
+                                                <span class="is-playing">
+
+                                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                                    <i class="fa fa-circle" aria-hidden="true"></i>
+
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                    </li>
+
+                                    <li class="content-holder">
+                                        <span class="number-of-song">2</span>
+
+                                        <div class="info-row-component align-top">
+
+                                            <div class="image-text-component">
+                                                <div class="image">
+
+                                                    <!-- circle-img-component -->
+                                                    <a href="" class="rounded-corner-component small">
+                                                        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0d/FooFighters-FooFighters.jpg/220px-FooFighters-FooFighters.jpg"
+                                                            alt="album cover">
+                                                    </a>
+                                                    <!-- circle-img-component -->
+                                                </div>
+
+                                                <a href="" class="text">
+                                                    <span>pretender</span>
+
+                                                    <label for="" class="time-of-post">
+                                                        kung fighters
+                                                    </label>
+                                                </a>
+                                            </div>
+
+                                            <div class="song-length">
+                                                <span class="time">4:31</span>
+                                                <span class="is-playing">
+
+                                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                                    <i class="fa fa-circle" aria-hidden="true"></i>
+                                                    <i class="fa fa-circle" aria-hidden="true"></i>
+
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                        <!-- box-widget -->
+
+                        <!-- box-widget -->
+                        <aside class="box-widget twitter">
+                            <!-- header -->
+                            <header class="header">
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>twitter feed</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </header>
+                            <!-- header -->
+
+                            <div class="box-widget-item">
+
+                                <section class="content-holder">
+                                    <div class="image-text-component">
+
+                                        <div class="image">
+
+                                            <!-- circle-img-component -->
+                                            <div class="rounded-corner-component medium ">
+                                                <img src="http://viralpirate.com/wp-content/uploads/2016/06/3048628-poster-p-1-heres-why-snapchat-and-twitter-are-barreling-toward-a-social-media-collision.jpg"
+                                                    alt="profile image">
+                                            </div>
+                                            <!-- circle-img-component -->
+                                        </div>
+
+                                        <!-- text-->
+                                        <div class="text">
+
+                                            <span class="title">
+                                                <a href="">papa het</a>
+                                            </span>
+
+                                            <label>@james_hetfield</label>
+
+                                        </div>
+                                        <!-- text -->
+                                    </div>
+
+                                    <p>
+                                        Tomorrow with the agency we will run 5 km for charity. Come and give us your support!
+                                        <a href="">#Daydream5K</a>
+                                    </p>
+
+                                    <span class="time-of-post">2 days ago</span>
+                                </section>
+
+                            </div>
+
+                            <div class="box-widget-item">
+
+                                <section class="content-holder">
+                                    <div class="image-text-component">
+
+                                        <div class="image">
+
+                                            <!-- circle-img-component -->
+                                            <div class="rounded-corner-component medium ">
+                                                <img src="http://viralpirate.com/wp-content/uploads/2016/06/3048628-poster-p-1-heres-why-snapchat-and-twitter-are-barreling-toward-a-social-media-collision.jpg"
+                                                    alt="profile image">
+                                            </div>
+                                            <!-- circle-img-component -->
+                                        </div>
+
+                                        <!-- text-->
+                                        <div class="text">
+
+                                            <span class="title">
+                                                <a href="">papa het</a>
+                                            </span>
+
+                                            <label>@james_hetfield</label>
+
+                                        </div>
+                                        <!-- text -->
+                                    </div>
+
+                                    <p>
+                                        Tomorrow with the agency we will run 5 km for charity. Come and give us your support!
+                                        <a href="">#Daydream5K</a>
+                                    </p>
+
+                                    <span class="time-of-post">2 days ago</span>
+                                </section>
+
+                            </div>
+
+                            <div class="box-widget-item">
+
+                                <section class="content-holder">
+                                    <div class="image-text-component">
+
+                                        <div class="image">
+
+                                            <!-- circle-img-component -->
+                                            <div class="rounded-corner-component medium ">
+                                                <img src="http://viralpirate.com/wp-content/uploads/2016/06/3048628-poster-p-1-heres-why-snapchat-and-twitter-are-barreling-toward-a-social-media-collision.jpg"
+                                                    alt="profile image">
+                                            </div>
+                                            <!-- circle-img-component -->
+                                        </div>
+
+                                        <!-- text-->
+                                        <div class="text">
+
+                                            <span class="title">
+                                                <a href="">papa het</a>
+                                            </span>
+
+                                            <label>@james_hetfield</label>
+
+                                        </div>
+                                        <!-- text -->
+                                    </div>
+
+                                    <p>
+                                        Tomorrow with the agency we will run 5 km for charity. Come and give us your support!
+                                        <a href="">#Daydream5K</a>
+                                    </p>
+
+                                    <span class="time-of-post">2 days ago</span>
+                                </section>
+
+                            </div>
+                        </aside>
+                        <!-- box-widget -->
+
+                        <!-- box-widget -->
+                        <aside class="box-widget last-videos">
+                            <!-- header -->
+                            <header class="header">
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>last videos</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </header>
+                            <!-- header -->
+
+                            <div class="box-widget-item">
+
+                                <ul class="">
+                                    <li class="content-holder">
+                                        <div class="video">
+                                            <img src="../img/users-images/james.jpg" alt="photo">
+                                            <a href="" class="play-icon">
+                                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                    <li class="content-holder">
+                                        <div class="video">
+                                            <img src="https://i.ytimg.com/vi/JXTzr358o_0/maxresdefault.jpg" alt="photo">
+                                            <a href="" class="play-icon">
+                                                <i class="fa fa-play-circle-o" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- box-widget -->
+
                     </div>
                     <!-- timeline-recent -->
 
@@ -363,52 +814,39 @@
                             <!-- post-header -->
                             <header class="post-header">
 
-                                <!-- post-header-item -->
-                                <div class="post-header-item">
-                                    <!-- user-rounded-image -->
-                                    <div class="user-rounded-image">
-                                        <img src="../img/users-images/profile-image.png" alt="">
-                                    </div>
-                                    <!-- user-rounded-image -->
+                                <div class="info-row-component align-center">
 
-                                    <div class="user-name">
-                                        <h2>james hetfield
+                                    <div class="image-text-component">
+                                        <div class="image">
+
+                                            <!-- circle-img-component -->
+                                            <div class="circle-img-component medium">
+                                                <img src="../img/users-images/profile-image.png" alt="">
+                                            </div>
+                                            <!-- circle-img-component -->
+                                        </div>
+
+                                        <div class="text">
+                                            <a>james hetfield</a>
                                             <span class="shared-media">shared a
                                                 <a href="">link</a>
                                             </span>
-                                        </h2>
-                                        <label for="" class="time-of-post">
-                                            6h ago
-                                        </label>
+                                            <label for="" class="time-of-post">
+                                                6h ago
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- post-header-item -->
 
-                                <!-- drop-down-icon-wrapper -->
-                                <div class="drop-down-icon-wrapper">
-                                    <a href="">
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                    </a>
-                                    <div class="drop-down-list">
-                                        <ul>
-                                            <li>
-                                                <a href="">edit post</a>
-                                            </li>
-                                            <li>
-                                                <a href="" class="delete">delete post</a>
-                                            </li>
-                                            <li>
-                                                <a href="">turn off notifications</a>
-                                            </li>
-                                            <li>
-                                                <a href="">select as feature</a>
-                                            </li>
-                                        </ul>
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
                                     </div>
+
                                 </div>
-                                <!-- drop-down-icon-wrapper -->
 
                             </header>
                             <!-- post-header -->
@@ -427,32 +865,40 @@
                             <!-- post-content -->
 
                             <!-- list-of-react-options -->
-                            <div class="list-of-react-options">
+                            <ul class="list-of-react-options">
 
-                                <!-- list-of-react-options-item -->
-                                <div class="list-of-react-options-item trophy">
-                                    <i class="fa fa-trophy" aria-hidden="true"></i>
-                                </div>
-                                <!-- list-of-react-options-item -->
+                                <li>
+                                    <!-- list-of-react-options-item -->
+                                    <a href="" class="circle-icon-component small">
+                                        <i class="fa fa-trophy" aria-hidden="true"></i>
+                                    </a>
+                                    <!-- list-of-react-options-item -->
+                                </li>
 
-                                <!-- list-of-react-options-item -->
-                                <div class="list-of-react-options-item">
-                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                </div>
-                                <!-- list-of-react-options-item -->
+                                <li>
+                                    <!-- list-of-react-options-item -->
+                                    <a href="" class="circle-icon-component small">
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                    </a>
+                                    <!-- list-of-react-options-item -->
+                                </li>
 
-                                <!-- list-of-react-options-item -->
-                                <div class="list-of-react-options-item">
-                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                                </div>
-                                <!-- list-of-react-options-item -->
+                                <li>
+                                    <!-- list-of-react-options-item -->
+                                    <a href="" class="circle-icon-component small">
+                                        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                    </a>
+                                    <!-- list-of-react-options-item -->
+                                </li>
 
-                                <!-- list-of-react-options-item -->
-                                <div class="list-of-react-options-item">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                </div>
-                                <!-- list-of-react-options-item -->
-                            </div>
+                                <li>
+                                    <!-- list-of-react-options-item -->
+                                    <a href="" class="circle-icon-component small">
+                                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </a>
+                                    <!-- list-of-react-options-item -->
+                                </li>
+                            </ul>
                             <!-- list-of-react-options -->
 
 
@@ -477,28 +923,28 @@
                                         </div>
                                         <!-- number-of-reactions -->
 
-                                        <!-- users-image-holder -->
-                                        <div class="users-image-holder">
+                                        <!--overlapping -->
+                                        <div class="overlapping">
 
-                                            <!-- user-rounded-image -->
-                                            <div class="user-rounded-image">
+                                            <!-- circle-img-component -->
+                                            <div class="circle-img-component extra-small">
                                                 <img src="../img/users-images/benedict.png" alt="profile picture">
                                             </div>
-                                            <!-- user-rounded-image -->
+                                            <!-- circle-img-component -->
 
-                                            <!-- user-rounded-image -->
-                                            <div class="user-rounded-image">
+                                            <!-- circle-img-component -->
+                                            <div class="circle-img-component extra-small">
                                                 <img src="../img/users-images/gilmour.png" alt="profile picture">
                                             </div>
-                                            <!-- user-rounded-image -->
+                                            <!-- circle-img-component -->
 
-                                            <!-- user-rounded-image -->
-                                            <div class="user-rounded-image">
+                                            <!-- circle-img-component-->
+                                            <div class="circle-img-component extra-small">
                                                 <img src="../img/users-images/jason.png" alt="profile picture">
                                             </div>
-                                            <!-- user-rounded-image -->
+                                            <!-- circle-img-component-->
                                         </div>
-                                        <!-- users-image-holder -->
+                                        <!-- overlapping -->
 
                                         <div class="list-of-users-that-liked">
                                             <a href="">David Gilmour
@@ -541,32 +987,37 @@
                                         <!-- post-header -->
                                         <header class="post-header">
 
-                                            <!-- post-header-item -->
-                                            <div class="post-header-item">
-                                                <!-- user-rounded-image -->
-                                                <div class="user-rounded-image">
-                                                    <img src="../img/users-images/jason.png" alt="profile image">
-                                                </div>
-                                                <!-- user-rounded-image -->
+                                            <div class="info-row-component align-center">
 
-                                                <div class="user-name">
-                                                    <h2>jason newsted</h2>
-                                                    <label for="" class="time-of-post">
-                                                        3h ago
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <!-- post-header-item -->
+                                                <div class="image-text-component">
+                                                    <div class="image">
 
-                                            <!-- drop-down-icon-wrapper -->
-                                            <div class="drop-down-icon-wrapper">
-                                                <a href="">
-                                                    <i class="fa fa-circle" aria-hidden="true"></i>
-                                                    <i class="fa fa-circle" aria-hidden="true"></i>
-                                                    <i class="fa fa-circle" aria-hidden="true"></i>
-                                                </a>
+                                                        <!-- circle-img-component -->
+                                                        <div class="circle-img-component medium">
+                                                            <img src="../img/users-images/jason.png" alt="">
+                                                        </div>
+                                                        <!-- circle-img-component -->
+                                                    </div>
+
+                                                    <div class="text">
+                                                        <a>jason newsted</a>
+
+                                                        <label for="" class="time-of-post">
+                                                            3h ago
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <!-- drop-down-icon-wrapper -->
+                                                <div class="drop-down-icon-wrapper">
+                                                    <a href="">
+                                                        <i class="fa fa-circle" aria-hidden="true"></i>
+                                                        <i class="fa fa-circle" aria-hidden="true"></i>
+                                                        <i class="fa fa-circle" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+
                                             </div>
-                                            <!-- drop-down-icon-wrapper -->
 
                                         </header>
                                         <!-- post-header -->
@@ -607,32 +1058,37 @@
                                             <!-- post-header -->
                                             <header class="post-header">
 
-                                                <!-- post-header-item -->
-                                                <div class="post-header-item">
-                                                    <!-- user-rounded-image -->
-                                                    <div class="user-rounded-image">
-                                                        <img src="../img/users-images/benedict.png" alt="profile image">
-                                                    </div>
-                                                    <!-- user-rounded-image -->
+                                                <div class="info-row-component align-center">
 
-                                                    <div class="user-name">
-                                                        <h2>benedict cumberbatch</h2>
-                                                        <label for="" class="time-of-post">
-                                                            2h ago
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                                <!-- post-header-item -->
+                                                    <div class="image-text-component">
+                                                        <div class="image">
 
-                                                <!-- drop-down-icon-wrapper -->
-                                                <div class="drop-down-icon-wrapper">
-                                                    <a href="">
-                                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                                    </a>
+                                                            <!-- circle-img-component -->
+                                                            <div class="circle-img-component medium">
+                                                                <img src="../img/users-images/benedict.png" alt="">
+                                                            </div>
+                                                            <!-- circle-img-component -->
+                                                        </div>
+
+                                                        <div class="text">
+                                                            <a>benedict cumberbatch</a>
+
+                                                            <label for="" class="time-of-post">
+                                                                2h ago
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- drop-down-icon-wrapper -->
+                                                    <div class="drop-down-icon-wrapper">
+                                                        <a href="">
+                                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+
                                                 </div>
-                                                <!-- drop-down-icon-wrapper -->
 
                                             </header>
                                             <!-- post-header -->
@@ -676,11 +1132,11 @@
 
                                     <!-- add-comment -->
                                     <div class="add-comment comment">
-                                        <!-- user-rounded-image -->
-                                        <div class="user-rounded-image">
+                                        <!-- circle-img-component -->
+                                        <div class="circle-img-component small">
                                             <img src="../img/users-images/profile-image.png" alt="">
                                         </div>
-                                        <!-- user-rounded-image -->
+                                        <!-- circle-img-component -->
                                         <div class="text-area-wrapper">
                                             <textarea></textarea>
                                             <a href="" class="capture-icon">
@@ -703,54 +1159,40 @@
                             <!-- post-header -->
                             <header class="post-header">
 
-                                <!-- post-header-item -->
-                                <div class="post-header-item">
-                                    <!-- user-rounded-image -->
-                                    <div class="user-rounded-image">
-                                        <img src="../img/users-images/profile-image.png" alt="">
-                                    </div>
-                                    <!-- user-rounded-image -->
+                                <div class="info-row-component align-center">
 
-                                    <div class="user-name">
-                                        <h2>james hetfield
+                                    <div class="image-text-component">
+                                        <div class="image">
+
+                                            <!-- circle-img-component -->
+                                            <div class="circle-img-component medium">
+                                                <img src="../img/users-images/profile-image.png" alt="">
+                                            </div>
+                                            <!-- circle-img-component -->
+                                        </div>
+
+                                        <div class="text">
+                                            <a>james hetfield</a>
                                             <span class="shared-media">shared a
                                                 <a href="">Deadpool</a>'s
                                                 <a href="">photo</a>
                                             </span>
-                                        </h2>
-                                        <label for="" class="time-of-post">
-                                            6h ago
-                                        </label>
+                                            <label for="" class="time-of-post">
+                                                6h ago
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- post-header-item -->
 
-                                <!-- drop-down-icon-wrapper -->
-                                <div class="drop-down-icon-wrapper">
-                                    <a href="">
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                    </a>
-                                    <div class="drop-down-list">
-                                        <ul>
-                                            <li>
-                                                <a href="">edit post</a>
-                                            </li>
-                                            <li>
-                                                <a href="" class="delete">delete post</a>
-                                            </li>
-                                            <li>
-                                                <a href="">turn off notifications</a>
-                                            </li>
-                                            <li>
-                                                <a href="">select as feature</a>
-                                            </li>
-                                        </ul>
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
                                     </div>
-                                </div>
-                                <!-- drop-down-icon-wrapper -->
 
+                                </div>
                             </header>
                             <!-- post-header -->
 
@@ -772,23 +1214,30 @@
                                         <div class="side-circle-icon-wrapper">
                                             <i class="fa fa-circle-o" aria-hidden="true"></i>
                                         </div>
-                                        <!-- post-header-item -->
-                                        <div class="post-header-item">
-                                            <!-- user-rounded-image -->
-                                            <div class="user-rounded-image">
-                                                <img src="https://cdn.images.express.co.uk/img/dynamic/36/590x/Deadpool-2-end-credits-How-many-post-credits-are-there-Will-there-be-a-Deadpool-3-961823.jpg?r=1527840080649"
-                                                    alt="profile image">
-                                            </div>
-                                            <!-- user-rounded-image -->
 
-                                            <div class="user-name">
-                                                <h2>Deadpool</h2>
-                                                <label for="" class="time-of-post">
-                                                    3days ago
-                                                </label>
+                                        <div class="info-row-component align-center">
+
+                                            <div class="image-text-component">
+                                                <div class="image">
+
+                                                    <!-- circle-img-component -->
+                                                    <div class="circle-img-component medium">
+                                                        <img src="https://cdn.images.express.co.uk/img/dynamic/36/590x/Deadpool-2-end-credits-How-many-post-credits-are-there-Will-there-be-a-Deadpool-3-961823.jpg?r=1527840080649">
+
+                                                    </div>
+                                                    <!-- circle-img-component -->
+                                                </div>
+
+                                                <div class="text">
+                                                    <a>Deadpool</a>
+
+                                                    <label for="" class="time-of-post">
+                                                        3 days ago
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <!-- post-header-item -->
+
                                     </header>
                                     <!-- post-header -->
 
@@ -804,32 +1253,40 @@
                             <!-- post-content -->
 
                             <!-- list-of-react-options -->
-                            <div class="list-of-react-options">
+                            <ul class="list-of-react-options">
 
-                                <!-- list-of-react-options-item -->
-                                <div class="list-of-react-options-item trophy">
-                                    <i class="fa fa-trophy" aria-hidden="true"></i>
-                                </div>
-                                <!-- list-of-react-options-item -->
+                                <li>
+                                    <!-- list-of-react-options-item -->
+                                    <a href="" class="circle-icon-component small">
+                                        <i class="fa fa-trophy" aria-hidden="true"></i>
+                                    </a>
+                                    <!-- list-of-react-options-item -->
+                                </li>
 
-                                <!-- list-of-react-options-item -->
-                                <div class="list-of-react-options-item">
-                                    <i class="fa fa-heart" aria-hidden="true"></i>
-                                </div>
-                                <!-- list-of-react-options-item -->
+                                <li>
+                                    <!-- list-of-react-options-item -->
+                                    <a href="" class="circle-icon-component small">
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                    </a>
+                                    <!-- list-of-react-options-item -->
+                                </li>
 
-                                <!-- list-of-react-options-item -->
-                                <div class="list-of-react-options-item">
-                                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
-                                </div>
-                                <!-- list-of-react-options-item -->
+                                <li>
+                                    <!-- list-of-react-options-item -->
+                                    <a href="" class="circle-icon-component small">
+                                        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                    </a>
+                                    <!-- list-of-react-options-item -->
+                                </li>
 
-                                <!-- list-of-react-options-item -->
-                                <div class="list-of-react-options-item">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                </div>
-                                <!-- list-of-react-options-item -->
-                            </div>
+                                <li>
+                                    <!-- list-of-react-options-item -->
+                                    <a href="" class="circle-icon-component small">
+                                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </a>
+                                    <!-- list-of-react-options-item -->
+                                </li>
+                            </ul>
                             <!-- list-of-react-options -->
 
 
@@ -854,28 +1311,28 @@
                                         </div>
                                         <!-- number-of-reactions -->
 
-                                        <!-- users-image-holder -->
-                                        <div class="users-image-holder">
+                                        <!--overlapping -->
+                                        <div class="overlapping">
 
-                                            <!-- user-rounded-image -->
-                                            <div class="user-rounded-image">
+                                            <!-- circle-img-component -->
+                                            <div class="circle-img-component extra-small">
                                                 <img src="../img/users-images/benedict.png" alt="profile picture">
                                             </div>
-                                            <!-- user-rounded-image -->
+                                            <!-- circle-img-component -->
 
-                                            <!-- user-rounded-image -->
-                                            <div class="user-rounded-image">
+                                            <!-- circle-img-component -->
+                                            <div class="circle-img-component extra-small">
                                                 <img src="../img/users-images/gilmour.png" alt="profile picture">
                                             </div>
-                                            <!-- user-rounded-image -->
+                                            <!-- circle-img-component -->
 
-                                            <!-- user-rounded-image -->
-                                            <div class="user-rounded-image">
+                                            <!-- circle-img-component-->
+                                            <div class="circle-img-component extra-small">
                                                 <img src="../img/users-images/jason.png" alt="profile picture">
                                             </div>
-                                            <!-- user-rounded-image -->
+                                            <!-- circle-img-component-->
                                         </div>
-                                        <!-- users-image-holder -->
+                                        <!-- overlapping -->
 
                                         <div class="list-of-users-that-liked">
                                             <a href="">David Gilmour
@@ -930,24 +1387,439 @@
                     <!-- timeline-recent -->
                     <div class="timeline-recent">
                         <!-- box-widget -->
-                        <aside class="box-widget">
-                            <!-- header -->
+                        <aside class="box-widget last-photos">
                             <header class="header">
-                                <h2>profile intro</h2>
-                                <!-- drop-down-icon-wrapper -->
-                                <div class="drop-down-icon-wrapper">
-                                    <a href="">
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                        <i class="fa fa-circle" aria-hidden="true"></i>
-                                    </a>
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>last photos</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
                                 </div>
-                                <!-- drop-down-icon-wrapper -->
+
                             </header>
                             <!-- header -->
+
                             <div class="box-widget-item">
-                                some random txt
+                                <ul class="spacing">
+                                    <li class="item-spacing">
+                                        <a href="" class="rounded-corner-component large">
+                                            <img src="https://fanoegerm.files.wordpress.com/2011/12/apmet1.jpg?w=627" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="rounded-corner-component large">
+                                            <img src="https://fanoegerm.files.wordpress.com/2011/12/apmet1.jpg?w=627" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="rounded-corner-component large">
+                                            <img src="https://fanoegerm.files.wordpress.com/2011/12/apmet1.jpg?w=627" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="rounded-corner-component large">
+                                            <img src="https://fanoegerm.files.wordpress.com/2011/12/apmet1.jpg?w=627" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                </ul>
                             </div>
+                        </aside>
+                        <!-- box-widget -->
+
+                        <!-- box-widget -->
+                        <aside class="box-widget blog-posts twitter">
+                            <!-- header -->
+                            <header class="header">
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>blog posts</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </header>
+                            <!-- header -->
+
+                            <div class="box-widget-item">
+
+                                <article class="content-holder">
+                                    <a href="" class="blog-titile">
+                                        My Perfect Vacations in South America and Europe
+                                    </a>
+
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod por incidid ut labore et.
+                                    </p>
+
+                                    <span class="time-of-post">2 days ago</span>
+                                </article>
+
+                            </div>
+
+                            <div class="box-widget-item">
+
+                                <section class="content-holder">
+                                    <a href="" class="blog-titile">
+                                        My Perfect Vacations in South America and Europe
+                                    </a>
+
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod por incidid ut labore et.
+                                    </p>
+
+                                    <span class="time-of-post">2 days ago</span>
+                                </section>
+
+                            </div>
+
+                            <div class="box-widget-item">
+
+                                <section class="content-holder">
+                                    <a href="" class="blog-titile">
+                                        My Perfect Vacations in South America and Europe
+                                    </a>
+
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consect adipisicing elit, sed do eiusmod por incidid ut labore et.
+                                    </p>
+
+                                    <span class="time-of-post">2 days ago</span>
+                                </section>
+
+                            </div>
+                        </aside>
+                        <!-- box-widget -->
+
+                        <!-- box-widget -->
+                        <aside class="box-widget friends">
+                            <!-- header -->
+                            <header class="header">
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>friends (46)</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </header>
+                            <!-- header -->
+
+                            <div class="box-widget-item">
+                                <ul class="spacing">
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/users-images/benedict.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/users-images/benedict.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/users-images/benedict.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/users-images/benedict.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/users-images/benedict.png" alt="Badges ">
+                                        </a>
+                                    </li>
+
+                                    <li class="item-spacing">
+                                        <a href="" class="circle-img-component small">
+                                            <img src="../img/users-images/benedict.png" alt="Badges ">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </aside>
+                        <!-- box-widget -->
+
+                        <!-- box-widget -->
+                        <aside class="box-widget favorite-pages">
+                            <!-- header -->
+                            <header class="header">
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>favorite pages</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </header>
+                            <!-- header -->
+
+                            <div class="box-widget-item">
+                                <div class="content-holder">
+
+                                    <div class="info-row-component align-center">
+
+                                        <div class="image-text-component">
+                                            <div class="image">
+
+                                                <!-- circle-img-component -->
+                                                <a href="" class="circle-img-component medium">
+                                                    <img src="https://i.pinimg.com/originals/33/61/87/336187dfff0eddfc661185c564e95f06.png" alt="album cover">
+                                                </a>
+                                                <!-- circle-img-component -->
+                                            </div>
+
+                                            <a href="" class="text">
+                                                <span>metallica</span>
+
+                                                <label for="" class="time-of-post">
+                                                    metal bend
+                                                </label>
+                                            </a>
+                                        </div>
+
+                                        <a href="" class="add-to-favorite">
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <span class="tooltip">add to favorite</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="box-widget-item">
+                                <div class="content-holder">
+
+                                    <div class="info-row-component align-center">
+
+                                        <div class="image-text-component">
+                                            <div class="image">
+
+                                                <!-- circle-img-component -->
+                                                <a href="" class="circle-img-component medium">
+                                                    <img src="https://seeklogo.com/images/A/apocalyptica-logo-AF2D6FD8F5-seeklogo.com.gif" alt="album cover">
+                                                </a>
+                                                <!-- circle-img-component -->
+                                            </div>
+
+                                            <a href="" class="text">
+                                                <span>apocalyptica</span>
+
+                                                <label for="" class="time-of-post">
+                                                    metal bend
+                                                </label>
+                                            </a>
+                                        </div>
+
+                                        <a href="" class="add-to-favorite">
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <span class="tooltip">add to favorite</span>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <!-- box-widget -->
+
+                        <!-- box-widget -->
+                        <aside class="box-widget poll">
+                            <!-- header -->
+                            <header class="header">
+
+                                <div class="info-row-component align-center">
+
+                                    <div class="image-text-component">
+                                        <div class="text">
+                                            <h2>james's poll</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- drop-down-icon-wrapper -->
+                                    <div class="drop-down-icon-wrapper">
+                                        <a href="">
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                            <i class="fa fa-circle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </header>
+                            <!-- header -->
+
+                            <div class="box-widget-item">
+
+                                <div class="content-holder ">
+                                    <span class="title">
+                                        If you had to choose, which actor do you prefer to be the next Aquaman?
+                                    </span>
+                                </div>
+
+                                <div class="poll-section">
+                                    <!-- radio-button-wrapper -->
+                                    <div class="radio-button-wrapper">
+                                        <i class="fa fa-circle-thin" aria-hidden="true"></i>
+                                        <div class="radio-button-component">
+                                            <!-- radio button -->
+                                            <input type="radio" id="momoa" name="vote" class="">
+                                            <!-- radio button -->
+                                            <label for="momoa">jason momoa</label>
+                                        </div>
+
+                                        <div class="vote-number">
+                                            <span class="">100%</span>
+                                        </div>
+                                    </div>
+                                    <!-- radio-button-wrapper -->
+
+                                    <div class="poll-bar-component">
+                                        <div class="full-width-bar">
+                                            <div class="current-poll-bar full"></div>
+                                        </div>
+                                    </div>
+
+                                    <span class="people-voted">3 friends voted for this</span>
+
+                                    <div class="overlapping">
+
+                                        <!-- circle-img-component -->
+                                        <div class="circle-img-component extra-small">
+                                            <img src="../img/users-images/benedict.png" alt="profile picture">
+                                        </div>
+                                        <!-- circle-img-component -->
+
+                                        <!-- circle-img-component -->
+                                        <div class="circle-img-component extra-small">
+                                            <img src="../img/users-images/gilmour.png" alt="profile picture">
+                                        </div>
+                                        <!-- circle-img-component -->
+
+                                        <!-- circle-img-component-->
+                                        <div class="circle-img-component extra-small">
+                                            <img src="../img/users-images/jason.png" alt="profile picture">
+                                        </div>
+                                        <!-- circle-img-component-->
+                                    </div>
+
+                                </div>
+
+                                <div class="poll-section">
+                                    <!-- radio-button-wrapper -->
+                                    <div class="radio-button-wrapper">
+                                        <i class="fa fa-circle-thin" aria-hidden="true"></i>
+                                        <div class="radio-button-component">
+                                            <!-- radio button -->
+                                            <input type="radio" id="cruise" name="vote" class="">
+                                            <!-- radio button -->
+
+                                            <label for="cruise">tom cruise</label>
+                                        </div>
+
+                                        <div class="vote-number">
+                                            <span class="">50%</span>
+                                        </div>
+                                    </div>
+                                    <!-- radio-button-wrapper -->
+
+                                    <div class="poll-bar-component">
+                                        <div class="full-width-bar">
+                                            <div class="current-poll-bar half"></div>
+                                        </div>
+                                    </div>
+
+                                    <span class="people-voted">2 friends voted for this</span>
+
+                                    <div class="overlapping">
+
+                                        <!-- circle-img-component -->
+                                        <div class="circle-img-component extra-small">
+                                            <img src="../img/users-images/benedict.png" alt="profile picture">
+                                        </div>
+                                        <!-- circle-img-component -->
+
+                                        <!-- circle-img-component -->
+                                        <div class="circle-img-component extra-small">
+                                            <img src="../img/users-images/gilmour.png" alt="profile picture">
+                                        </div>
+                                        <!-- circle-img-component -->
+
+                                        <!-- circle-img-component-->
+                                        <div class="circle-img-component extra-small">
+                                            <img src="../img/users-images/jason.png" alt="profile picture">
+                                        </div>
+                                        <!-- circle-img-component-->
+                                    </div>
+
+                                </div>
+
+                                <button class="vote-now">vote now!</button>
+
+                            </div>
+
                         </aside>
                         <!-- box-widget -->
                     </div>
@@ -963,49 +1835,53 @@
         <!-- chat-section -->
         <aside class="chat-section sidebar">
 
-            <!-- user-online-status-wrapper -->
-            <div class="user-online-status-wrapper">
+            <div class="chat-section-item-wrapper">
+                <!-- chat-section-item -->
+                <div class="chat-section-item user-name-popup">
 
-                <!-- user-rounded-image -->
-                <div class="user-rounded-image">
-                    <img src="../img/users-images/benedict.png" alt="user profile image" />
+                    <!-- circle-img-component -->
+                    <div class="circle-img-component small">
+                        <img src="../img/users-images/benedict.png" alt="user profile image" />
+                    </div>
+                    <!-- circle-img-component -->
+
+                    <!-- online-status-component -->
+                    <div class="online-status-circle border-white active"></div>
+                    <!-- online-status-component -->
+
                 </div>
-                <!-- user-rounded-image -->
+                <!-- chat-section-item -->
 
-                <!-- online-status -->
-                <div class="online-status active"></div>
-                <!-- online-status -->
+                <!-- chat-section-item -->
+                <div class="chat-section-item user-name-popup ">
 
-                <!-- user-name-popup -->
-                <div class="user-name-popup">
-                    <span>benedict cumberbatch</span>
+                    <!-- circle-img-component -->
+                    <div class="circle-img-component small">
+                        <img src="../img/users-images/gilmour.png" alt="user profile image" />
+                    </div>
+                    <!-- circle-img-component -->
+
+                    <!-- online-status-component -->
+                    <div class="online-status-circle border-white busy"></div>
+
                 </div>
-                <!-- user-name-popup -->
-
+                <!-- chat-section-item -->
             </div>
-            <!-- user-online-status-wrapper -->
+            <div class="chat-footer">
+                <ul>
+                    <li>
+                        <a href="">
+                            <i class="fa fa-sliders" aria-hidden="true"></i>
+                        </a>
+                    </li>
 
-            <!-- user-online-status-wrapper -->
-            <div class="user-online-status-wrapper">
-
-                <!-- user-rounded-image -->
-                <div class="user-rounded-image">
-                    <img src="../img/users-images/gilmour.png" alt="user profile image" />
-                </div>
-                <!-- user-rounded-image -->
-
-                <!-- online-status -->
-                <div class="online-status busy"></div>
-                <!-- online-status -->
-
-                <!-- user-name-popup -->
-                <div class="user-name-popup">
-                    <span>david gilmour</span>
-                </div>
-                <!-- user-name-popup -->
-
+                    <li>
+                        <a href="" class="open-chat">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <!-- user-online-status-wrapper -->
 
         </aside>
         <!-- chat-section -->

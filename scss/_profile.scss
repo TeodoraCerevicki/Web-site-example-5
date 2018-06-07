@@ -11,7 +11,7 @@
     // sidebar
     .sidebar {
         background: $white;
-        padding: 30px 25px;
+        padding: 30px 0;
         text-align: center;
         width: 70px;
     }
@@ -109,6 +109,9 @@
             left: 50%;
             transform: translateX(-50%);
             text-align: center;
+            .border{
+                border: 3px solid $white;
+            }
         }
 
         // profile-user-info h1
@@ -136,60 +139,18 @@
         // contact-user-icon-wrapper
         .contact-user-icon-wrapper {
             display: inline-block;
-        }
-        .contact-user-icon-wrapper a {    
-            border-radius: 50%;
-            color: #fff;
-            display: inline-block;
-            height: 50px;
-            margin: 0 10px;
-            padding: 0 10px;
-            position: relative;
-            text-align: center;
-            transition: transform .3s;
-            width: 50px;
+            & > a {
+                margin: 0 10px;
+                transition: transform .3s;
+            }
             &:hover {
                 transform: scale(1.2);
             }
-
-            // send-request color
-            &.send-request {
-                background-color: $twitter-blue;
-            }
-
-            // send-message color
-            &.send-message {
-                background-color: $less-dark-purple;
-            }
-
-            // share color
-            &.share {
-                background-color: $orange;
-            }
         }
-
-        // contact-user-icon-wrapper  i
-        .contact-user-icon-wrapper  i {
-            font-size: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        // contact-user-icon-wrapper  i
-
         // contact-user-icon-wrapper
 
         // profile-user-info
 
-        // user-rounded-image
-        .user-rounded-image {
-            border: 3px solid $white;
-            margin: 0 auto;
-            height: 135px;
-            width: 135px;
-        }
-        // user-rounded-image
     }
     // profile-page-header
 //////////////////////////////////////////////////////////////////////////////////
@@ -221,6 +182,232 @@
         // timeline-posts
     }
     // timeline-recent
+    .timeline-recent {
+        .content-holder {
+            margin: 10px;
+            position: relative;
+            h3 {
+                color: $black;
+                font-size: 13px;
+                margin-bottom: 5px;
+                text-transform: capitalize;
+            }
+    
+            p {
+                color: $black;
+                font-size: 13px;
+            }
+            a {
+                display: block;
+            }
+    
+            
+        } // content-holder
+
+        .profile-intro {
+            .social-links {
+                align-items: center;
+                background-color: $facebook-blue;
+                border-radius: 3px;
+                color: #fff; 
+                display: flex;
+                font-size: 11px;
+                height: 30px;
+                justify-content: center;
+                margin-bottom: 10px;
+                text-transform: capitalize;
+                i {
+                    font-size: 13px;
+                    margin-right: 10px;
+                }
+    
+            }
+    
+            &li:last-child {
+                margin-bottom: 0;
+            }
+        } // profile-intro 
+    
+        .spacing {
+            margin: 10px 6px;
+        }
+
+        .item-spacing {
+            display: inline-block;
+            margin-right: 9px;
+            position: relative;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .badges, .friends {
+            a {
+                display: block;
+            }
+        }
+
+        .spotify {
+
+            .song-length {
+                color: $grey;
+                font-size: 13px;
+            }
+
+            .is-playing {
+                display: none;
+                i {
+                    font-size: 4px;
+                }
+            }
+
+            .number-of-song {
+                color: $grey;
+                font-size: 13px;
+                position: absolute;
+                top: 50%;
+                left: -12px;
+                transform: translateY(-50%);
+            } // number-of-song
+        } // spotify
+
+        .twitter {
+            p {
+                margin: 15px 0 20px;
+            }
+
+            .time-of-post {
+                color: $grey;
+                font-size: 13px;
+            }
+        } // twitter
+
+        .last-videos {
+            .video {
+                border-radius: 3px;
+                overflow: hidden;
+                position: relative;
+                img {
+                    height: 100%;
+                    transform: scale(1.2);
+                    width: 100%;
+                }
+            } // video
+
+            .play-icon {
+                background-color: rgba(147, 150, 155, .2);
+                color: $light-grey;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                transition: background-color .3s,
+                            color .3s;
+                i {
+                    font-size: 60px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                &:hover {
+                    background-color: rgba(147, 150, 155, .5);
+                    color: $orange;
+                }
+            }
+        } // last-videos
+
+        .blog-posts {
+            .blog-titile {
+                font-size: 24px;
+            }
+        }
+
+        .poll {
+            .poll-section {
+                margin: 15px;
+                margin-bottom: 20px;
+            }
+            .title {
+                color: $black;
+                font-size: 14px;
+            }
+            .radio-button-wrapper {
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+                font-size: 13px;
+                position: relative;
+                text-transform: capitalize;
+                i {
+                    color: $light-grey;
+                    font-size: 17px;
+                    position: absolute;
+                    top: 1px;
+                    left: 0;
+                }
+                .vote-number {
+                    font-size: 15px;
+                }
+            } // radio-button-wrapper
+
+            .people-voted {
+                color: $light-grey;
+                display: block;
+                font-size: 13px;
+                margin-top: 7px;
+            }
+
+            .vote-now {
+                background-color: transparent;
+                border: 1px solid $light-grey;
+                border-radius: 3px;
+                color: $light-grey;
+                cursor: pointer;
+                font-size: 13px;
+                padding: 10px;
+                text-align: center;
+                text-transform: capitalize;
+                transition: color .3s,
+                            border-color .3s;
+                width: 100%;
+                &:hover {
+                    border-color: $orange;
+                    color: $orange;
+                }
+            }
+            
+        } // poll
+
+        .favorite-pages {
+            .add-to-favorite {
+                color: $grey;
+                font-size: 20px;
+                transition: color .3s;
+                &:hover {
+                    color: $orange;
+                    .tooltip {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .last-photos {
+            li, a {
+                display: inline-block;
+            }
+            .item-spacing {
+                margin-right: 3px;
+            }
+        }
+
+        .friends {
+            .item-spacing {
+                margin-right: 6px;
+            }
+        }
+    }
 
     // timeline-posts
      //////////////////////////////////////////////////////////////////////////////////
@@ -241,42 +428,8 @@
     .post-header {
         padding-top: 25px;
     }
-    // post-header-item
-    .post-header-item {
-        display: flex;
-    }
-    // post-header-item
 
-    // user-name
-    .user-name {    
-        margin-left: 7px;
-        margin-top: 6px;
-        label {
-            color: $light-grey;
-            font-size: 13px;
-        }
-    }
-    // user-name
 
-    // user-rounded-image
-    .post-header-item .user-rounded-image {
-        border-color: $white;
-        height: 40px;
-        width: 40px;
-    }
-
-    // shared-media
-    .shared-media {
-        color: $light-grey;
-        margin-left: 3px;
-        text-transform: none;
-        a {
-            color: $orange;
-        }
-    }
-    // shared-media
-
-    // user-rounded-image
     //////////////////////////////////////////////////////////////////////////////////
         // End of Style for header post
     //////////////////////////////////////////////////////////////////////////////////
@@ -309,27 +462,17 @@
         position: absolute;
         right: -15px;
         top: 16px;
-    }
-    // .list-of-react-options
-
-    // list-of-react-options-item
-    .list-of-react-options-item {
-        background-color: $light-grey;
-        border-radius: 50%;
-        color: $white;
-        cursor: pointer;
-        height: 30px;
-        margin-bottom: 7px;
-        position: relative;
-        width: 30px;
-        i {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        li {
+            margin-bottom: 7px;
+        }
+        a {
+            transition: background-color .3s; 
+            &:hover {
+                background-color: $busy-yellow;
+            }
         }
     }
-    // list-of-react-options-item
+    // .list-of-react-options
 
     // reaction-footer
     .reaction-footer {
@@ -372,23 +515,7 @@
         display: flex;
     }
     // like-section
-    // users-image-holder
-    .users-image-holder {
-        display: flex;
-        margin-right: 10px;
-    }
-    // users-image-holder
 
-    // user-rounded-image
-    .reaction-footer .user-rounded-image {border-color: $white;
-        height: 30px;
-        width: 30px;
-        margin-left: -10px;          
-        &:first-child {
-            margin-left: 0;
-        }
-    }
-    // user-rounded-image
 
     // list-of-users-that-liked
     .list-of-users-that-liked {
@@ -446,22 +573,18 @@
         background-color: $darker-white;
         border-bottom: 1px solid $light-grey;
         margin: 0 -25px;
-        // margin-top: 20px;
         padding:  0 25px;
         &:first-child {
             border-top: 1px solid $light-grey;
-        }      
+        }  
+        
+        .post-content {
+            padding-top: 12px;
+        }
     }
     // comment
 
-    .comment .user-rounded-image {
-        height: 35px;
-        width: 35px;
-    } // comment .user-rounded-image
-
-    .comment .post-content {
-        padding-top: 12px;
-    } // comment .post-content 
+    .comment  // comment .post-content 
 
     // comment-footer
     .comment-footer {
@@ -608,28 +731,39 @@
 //////////////////////////////////////////////////////////////////////////////////
     
     .chat-section {
-        // user-online-status-wrapper
-        .user-online-status-wrapper {
-            margin: 15px 0;
-            // user-rounded-image
-            .user-rounded-image {
-                border-color: $white;
-                height: 38px;
-                width: 38px;
-            }
-            // user-rounded-image
+        .chat-section-item-wrapper {
+            padding: 0 20px;
 
-            // online-status
-            .online-status {
-                border-color: $white;
-            }
-            // online-status
+        position: relative;
+            & > div {
+                margin: 15px 0;
+                position: relative;
 
-            &:first-child {
-                margin-top: 0;
+                &:first-child {
+                    margin-top: 0;
+                }
             }
         }
-    // user-online-status-wrapper
+
+        .chat-footer {
+            margin: 0;
+            position: fixed;
+            bottom: 0;
+            width: 70px;
+            a {
+                color: $dark-purple;
+                display: block;
+                padding: 20px;
+                i {
+                    font-size: 25px;
+                }
+                
+            } // a 
+            .open-chat {
+                background-color: $dark-purple;
+                color: $white;
+            } 
+        } // end of chat-footer
     }
 //////////////////////////////////////////////////////////////////////////////////
         // End of chat-section
