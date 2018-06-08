@@ -14,9 +14,6 @@
 }
 // container
 
-//////////////////////////////////////////////////////////////////////////////////
-        // Style for box-widget
-//////////////////////////////////////////////////////////////////////////////////
 
 // delete
 .delete {
@@ -180,13 +177,20 @@
     position: absolute;
     width: 18px;
     top: -3px;
-    right: 5px;
     span {
         font-size: 12px;
         font-weight: 700;
         position: absolute;
         top: 5px;
         left: 5px;
+    }
+
+    &.small-icon {
+        right: 5px;
+    }
+
+    &.medium-icon {
+        right: -5px;
     }
 }
 // notification-component
@@ -224,6 +228,7 @@
      
     .shared-media {
         color: $light-grey;
+        font-size: 14px;
         margin-left: 3px;
         text-transform: none;
         a {
@@ -283,6 +288,7 @@
     color: $light-grey;
     font-size: 8px;
     transition: color .3s;
+    width: 40px;
     &:hover {
         color: $black;
         .drop-down-list {
@@ -297,7 +303,7 @@
         box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
         border: 2px solid $very-light-grey;
         color: $black;
-        display: none;
+        display: block;
         font-size: 12px;
         font-weight: 700;
         opacity: 0;
@@ -308,11 +314,11 @@
         text-transform: capitalize;
         transition: opacity .9s;
         z-index: 1;
-
-        li {
-            margin-bottom: 15px;
+        a {
+            display: block;
+            margin-bottom: 10px;
             &:last-child {
-                margin-bottom: none;
+                margin-bottom: 0;
             }
         }
     }
@@ -353,7 +359,7 @@
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
     border: 2px solid $very-light-grey;
     border-radius: 3px;
-    margin: 15px;
+    margin: 15px 0;
     min-width: 270px;
     //overflow: hidden;   
     .header {
@@ -372,13 +378,11 @@
         padding: 16px;
     }
     // box-widget-item
-
+    @media screen and (min-width: 768px) {
+        margin: 15px;
+    } // media screen
 }
 
-
-//////////////////////////////////////////////////////////////////////////////////
-        // Style for box-widget
-//////////////////////////////////////////////////////////////////////////////////
 
 // input
 input {
@@ -413,9 +417,7 @@ input {
 }
 // input wrapper
 
-//////////////////////////////////////////////////////////////////////////////////
-        // checkbox-component
-//////////////////////////////////////////////////////////////////////////////////
+
 .checkbox-component {
     input[type="checkbox"] {
         border: 1px solid $grey;
@@ -477,9 +479,6 @@ input {
         left: 0.5px;
     }
 }
-//////////////////////////////////////////////////////////////////////////////////
-        // end of checkbox-component
-//////////////////////////////////////////////////////////////////////////////////
 
 // button-component
 .button-component {
@@ -497,42 +496,34 @@ input {
 // button-component
 
 
-    // icon-wrapper for home-nav sidebar
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    // icon has 3 states:
-    // 1. default with grey color
-    // 2. hover with orange color
-    // 3. active with orange color
-    ////////////////////////////////////////////////////////////////////////////////////////////
-    .sidebar-icon-wrapper {
-        color: $grey;
-        font-size: 23px;
-        transition: color .3s;
-        a {
-            display: block;
-            padding: 10px 0;
-        }
-
-        &:first-child a{
-            padding-top: 0;
-        }
-        
-        &.active {
-            color: $orange;
-        }
-        &:hover {
-            color: $orange;
-        }
-    }
-    // icon-wrapper
-
-
+// icon-wrapper for home-nav sidebar
 /////////////////////////////////////////////////////////////////////////////////////////////
-// online status:
-// active: when user is online, has color green
-// busy: when user is busy, has color yellow
-// offline: when user is offline, has color grey 
+// icon has 3 states:
+// 1. default with grey color
+// 2. hover with orange color
+// 3. active with orange color
 ////////////////////////////////////////////////////////////////////////////////////////////
+.sidebar-icon-wrapper {
+    color: $grey;
+    font-size: 23px;
+    transition: color .3s;
+    a {
+        display: block;
+        padding: 10px 0;
+    }
+
+    &:first-child a{
+        padding-top: 0;
+    }
+    
+    &.active {
+        color: $orange;
+    }
+    &:hover {
+        color: $orange;
+    }
+}
+// icon-wrapper
 
 
 // main-nav-bar
@@ -540,7 +531,7 @@ input {
     align-items: center;
     background-color: $dark-purple;
     display: flex;
-    padding-right: 79px;
+    padding-right: 38px;
     // logo-wrapper
     .logo-wrapper {
         background-color: $orange;
@@ -554,16 +545,6 @@ input {
     } 
     // logo-wrapper
 
-    // page-title
-    .page-title {
-        color: $white;
-        font-size: 10px;
-        font-weight: 700;
-        padding: 0 30px;
-        text-transform: uppercase;
-    }
-    // page-title
-
     // search-bar
     .search-bar {
         align-items: center;
@@ -571,6 +552,7 @@ input {
         color: $grey;
         display: flex;
         flex: 1 1 0;
+        margin-left: 10px;
         padding: 18px 20px;
         padding-right: 50px;
         position: relative;
@@ -597,66 +579,95 @@ input {
     }
     // search-bar
 
-    // find-friends
-    .find-friends {
-        padding:  0 30px;
-        text-align: center;
-        a {
-            color: $white;
-            font-size: 13px;
+    .page-title, 
+    .find-friends, 
+    .notification-bar,
+    .user-profile-settings {
+        display: none;
+    }
+
+
+    @media screen and (min-width: 768px) {
+
+        .search-bar {
+            margin-left: 0;
         }
-    }
-    // find-friends
+            // page-title
+        .page-title {
+            color: $white;
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 0 30px;
+            text-transform: uppercase;
+        }
+        // page-title
 
-    // notification-bar
-    .notification-bar {
-        display: flex;
-        padding: 0 20px;
-    }
-    // notification-icon-wrapper
-    .notification-icon-wrapper {
-        padding: 0 15px;
-        position: relative;
+        // notification-bar
+        .notification-bar {
+            display: flex;
+            padding: 0 20px;
+        }
+        // notification-icon-wrapper
+        .notification-icon-wrapper {
+            padding: 0 15px;
+            position: relative;
 
-        // icon
-        .icon {
-            color: $grey;
-            font-size: 24px;
-            transition: color .3s;
-    
-            // hover
-            &:hover {
+            // icon
+            .icon {
+                color: $grey;
+                font-size: 24px;
+                transition: color .3s;
+        
+                // hover
+                &:hover {
+                    color: $white;
+                }
+                // hover
+            }
+            // icon
+        }
+        // notification-icon-wrapper
+
+        // user-profile-settings
+        .user-profile-settings {
+            display: flex;
+            align-items: center;
+            span {
                 color: $white;
             }
-            // hover
+                // dropdown-icon-wrapper
+            i {
+                color: $grey;
+                transition: color .3s;
+
+                // hover
+                &:hover {
+                    color: $white;
+                }
+                // hover
+            }
+            // dropdown-icon-wrapper
         }
-        // icon
-    }
-    // notification-icon-wrapper
+        // user-profile-settings
 
 
-    // user-profile-settings
-    .user-profile-settings {
-        display: flex;
-        align-items: center;
-        span {
-            color: $white;
+    } // @media screen and 
+
+    @media screen and (min-width: 1200px) {
+        padding-right: 79px;
+        // find-friends
+        .find-friends {
+            display: block;
+            padding:  0 30px;
+            text-align: center;
+            a {
+                color: $white;
+                font-size: 13px;
+            }
         }
+        // find-friends
     }
-    // user-profile-settings
-
-    // dropdown-icon-wrapper
-    i {
-        color: $grey;
-        transition: color .3s;
-
-        // hover
-        &:hover {
-            color: $white;
-        }
-        // hover
-    }
-    // dropdown-icon-wrapper
 } 
 // main-nav-bar
 
