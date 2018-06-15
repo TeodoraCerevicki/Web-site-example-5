@@ -47,62 +47,59 @@
     } // @media screen and (min-width: 1024px)
 
     // navigation-wrapper
-    .navigation-wrapper {
+    .login-header {
         align-items: center;
         display: flex;
         justify-content: space-between;
         margin-bottom: 40px;
         padding:25px 5% 0;
-
-        // logo
-        .logo {
-            min-width: 120px;
-            max-width: 150px;
-
-            img {
-                width: 100%;
-            }
-        } // logo
-
-        // burger
-        .nav-burger {
-            color: $white;
-            display: block;
-        } // burger
-
-        // @media screen and (min-width: 768px) 
         @media screen and (min-width: 768px) {
             margin-bottom: 70px;
         }
         // @media screen and (min-width: 768px)
-    } // navigation-wrapper
+    } 
+
+    // logo
+    .login-header__logo {
+        min-width: 120px;
+        max-width: 150px;
+
+        img {
+            width: 100%;
+        }
+    } // logo
+
+    // burger
+    .login-header__burger {
+        color: $white;
+        display: block;
+    } 
+    // navigation-wrapper
 
     // main content
 
 
     // welcome-register
-    .welcome-register {
+    .welcome-section {
         color: $white;
-        h1 {
-            font-size: 1.5rem; 
-        }
-        p {
-            margin: 35px 0 60px;
-        }
-        // @media screen and (min-width: 768px) 
-        @media screen and (min-width: 768px) {
-            h1 {
-                font-size: 2rem; 
-            }
-        } // @media screen and (min-width: 768px) 
-
-        // @media screen and (min-width: 1024px) 
+        
         @media screen and (min-width: 1024px) {
             padding-right: 80px;
-        } // @media screen and (min-width: 1024px) 
-        
+        } 
     }
-    .register-button {
+
+    .welcome-section__h1 {
+        font-size: 1.5rem; 
+        @media screen and (min-width: 768px) {
+            font-size: 2rem; 
+        } // @media screen and (min-width: 768px) 
+    }
+
+    .welcome-section__p {
+        margin: 35px 0 60px;
+    }
+    
+    .welcome-section__button {
         background-color: transparent;
         border: 2px solid #fff;
         border-radius: 3px;
@@ -124,7 +121,7 @@
 
 
     // login-wrapper
-    .login-wrapper {
+    .login-section {
         background-color: $white;
         border: 1px solid $grey;
         border-top-right-radius: 3px;
@@ -167,23 +164,22 @@
             }
            
         // li.active
-        li.active {
-            background-color: $white;
-            
-            i {
-                color: $orange;
-            }
-        } // li.active
 
-        // li > i
-        li > i {
+        .sign-in-list__item  > i {
             color: $grey;
             font-size: 20px;
             position: relative;
             top: 50%;
             transform: translateY(-50%);
         }
-        // li > i
+
+        .sign-in-list__item_active {
+            background-color: $white;
+            i {
+                color: $orange;
+            }
+        } // li.active
+
         
          // @media screen and (min-width: 768ppx) 
          @media screen and (min-width: 768px) {
@@ -192,7 +188,7 @@
             display: flex;
             flex-direction: column;
 
-            li {
+            .sign-in-list__item  {
                 padding: 0 20px;
             }
 
@@ -209,104 +205,96 @@
     } // sign-in-list
 
     // login-form
-    .login-form {
+    .login-form-wrapper {
         width: 100%;
-
-        // header
-        .header {
-            border-bottom: 1px solid $grey;
-            padding: 25px 25px 20px;
-
-            h2 {
-                font-size: 14px;
-                font-weight: 700;
-            }
-        } // header
-
-        // login-form-wrapper 
-        .login-form-wrapper {
-            padding: 30px 25px;
-        }//login-form-wrapper  
-
-        // form-options
-        .form-options {
-            
-            margin-bottom: 35px;
-            // @media screen and (min-width: 768ppx) 
-            @media screen and (min-width: 768px) {
-                display: flex;
-                justify-content: space-between;
-            } 
-            // @media screen and (min-width: 768px) 
-        } // form-options
-
-        // forgot-password
-        .forgot-password {
-            color: $grey;
-            display: block;
-            font-size: 14px;
-            margin-top: 15px;
-            // @media screen and (min-width: 768ppx) 
-            @media screen and (min-width: 768px) {
-                margin-top: 3px;
-            } 
-            // @media screen and (min-width: 768px) 
-        } // forgot-password
-
-        // button-component
-        .button-component {
-
-            &.regular-login {
-                background-color: $orange;
-            }
-
-            &.facebook-login {
-                background-color: $facebook-blue;
-            }
-
-            &.twitter-login {
-                background-color: $twitter-blue;
-            }
-        } // button-component
-
-        // or-separator
-        .or-separator {
-            border-top: 1px solid #bfc3c9;
-            margin: 20px 0;
-            text-align: center;
-            position: relative;
-
-            span {
-                background-color: #fff;
-                color: #bfc3c9;
-                font-size: 11px;
-                text-transform: uppercase;
-                position: absolute;
-                width: 74px;
-                top: -4px;
-                left: 50%;
-                transform: translateX(-50%);
-            } // span
-        }
-        // or-separator
-
-        //register-now-text
-        .register-now-text {
-            color: $grey;
-            font-size: 14px;
-            line-height: 1.3;
-            margin-top: 20px;
-
-            a {
-                color: $orange;
-                font-weight: 700;
-            }
-        } // register-now-text
     }
-    // login-form
 
-    // login-wrapper
+    // header
+    .login-form-wrapper__header {
+        border-bottom: 1px solid $grey;
+        padding: 25px 25px 20px;
 
+        h2 {
+            font-size: 14px;
+            font-weight: 700;
+        }
+    } 
+
+    // login-form-wrapper 
+    .login-form {
+        padding: 30px 25px;
+    }  
+
+    // form-options
+    .login-form__form-options {
+         margin-bottom: 35px;
+        // @media screen and (min-width: 768ppx) 
+        @media screen and (min-width: 768px) {
+            display: flex;
+            justify-content: space-between;
+        } 
+        // @media screen and (min-width: 768px) 
+    } 
+
+    // forgot-password
+    .login-form__forgot-password {
+        color: $grey;
+        display: block;
+        font-size: 14px;
+        margin-top: 15px;
+
+        @media screen and (min-width: 768px) {
+            margin-top: 3px;
+        } 
+        // @media screen and (min-width: 768px) 
+    } 
+
+    .login-form__regular-login {
+        background-color: $orange;
+    }
+
+    .login-form__facebook-login {
+        background-color: $facebook-blue;
+    }
+
+    .login-form__twitter-login {
+        background-color: $twitter-blue;
+    }
+
+
+    // or-separator
+    .login-form__separator {
+        border-top: 1px solid #bfc3c9;
+        margin: 20px 0;
+        text-align: center;
+        position: relative;
+
+        span {
+            background-color: #fff;
+            color: #bfc3c9;
+            font-size: 11px;
+            text-transform: uppercase;
+            position: absolute;
+            width: 74px;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+        } // span
+    }
+    // or-separator
+
+    //register-now-text
+    .login-form__register-now-text {
+        color: $grey;
+        font-size: 14px;
+        line-height: 1.3;
+        margin-top: 20px;
+
+        a {
+            color: $orange;
+            font-weight: 700;
+        }
+    } // register-now-text
 
 } // login-page-wrapper
 
