@@ -216,7 +216,7 @@
     justify-content: space-between;
   }
 }
-/* line 240, ../scss/_login.scss */
+/* line 239, ../scss/_login.scss */
 .login-page-wrapper .login-form__forgot-password {
   color: #bfc3c9;
   display: block;
@@ -224,31 +224,31 @@
   margin-top: 15px;
 }
 @media screen and (min-width: 768px) {
-  /* line 240, ../scss/_login.scss */
+  /* line 239, ../scss/_login.scss */
   .login-page-wrapper .login-form__forgot-password {
     margin-top: 3px;
   }
 }
-/* line 252, ../scss/_login.scss */
+/* line 251, ../scss/_login.scss */
 .login-page-wrapper .login-form__regular-login {
   background-color: #f76927;
 }
-/* line 256, ../scss/_login.scss */
+/* line 255, ../scss/_login.scss */
 .login-page-wrapper .login-form__facebook-login {
   background-color: #3B5998;
 }
-/* line 260, ../scss/_login.scss */
+/* line 259, ../scss/_login.scss */
 .login-page-wrapper .login-form__twitter-login {
   background-color: #1DA1F2;
 }
-/* line 266, ../scss/_login.scss */
+/* line 265, ../scss/_login.scss */
 .login-page-wrapper .login-form__separator {
   border-top: 1px solid #bfc3c9;
   margin: 20px 0;
   text-align: center;
   position: relative;
 }
-/* line 272, ../scss/_login.scss */
+/* line 271, ../scss/_login.scss */
 .login-page-wrapper .login-form__separator span {
   background-color: #fff;
   color: #bfc3c9;
@@ -260,14 +260,14 @@
   left: 50%;
   transform: translateX(-50%);
 }
-/* line 287, ../scss/_login.scss */
+/* line 285, ../scss/_login.scss */
 .login-page-wrapper .login-form__register-now-text {
   color: #bfc3c9;
   font-size: 14px;
   line-height: 1.3;
   margin-top: 20px;
 }
-/* line 293, ../scss/_login.scss */
+/* line 291, ../scss/_login.scss */
 .login-page-wrapper .login-form__register-now-text a {
   color: #f76927;
   font-weight: 700;

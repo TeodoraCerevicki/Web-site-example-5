@@ -228,7 +228,6 @@
     // form-options
     .login-form__form-options {
          margin-bottom: 35px;
-        // @media screen and (min-width: 768ppx) 
         @media screen and (min-width: 768px) {
             display: flex;
             justify-content: space-between;
@@ -281,7 +280,6 @@
             transform: translateX(-50%);
         } // span
     }
-    // or-separator
 
     //register-now-text
     .login-form__register-now-text {
@@ -294,7 +292,7 @@
             color: $orange;
             font-weight: 700;
         }
-    } // register-now-text
+    } 
 
 } // login-page-wrapper
 
