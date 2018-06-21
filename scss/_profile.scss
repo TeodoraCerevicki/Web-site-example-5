@@ -203,7 +203,7 @@
         display: none;
         @media screen and (min-width: 1200px) {
             display: block;
-            flex: 1 1 0;
+            max-width: 350px;
         }
     }
 
@@ -478,6 +478,9 @@
         position: relative;
     }
 
+    .post-article__content {
+        margin-bottom: 20px;
+    }
 
     //////////////////////////////////////////////////////////////////////////////////
         // End of Style for header post
