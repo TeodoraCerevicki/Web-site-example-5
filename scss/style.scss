@@ -14,12 +14,15 @@
 }
 // container
 
+.hide {
+    display: none;
+}
 
 // delete
 .delete {
     color: $orange;
 }
-// delete
+
 
 // .circle-icon
 .circle-icon-component {
@@ -316,17 +319,16 @@
 .drop-down-icon-wrapper {
     color: $light-grey;
     font-size: 8px;
+    padding: 5px;
     transition: color .3s;
     text-align: right;
     width: 40px;
     &:hover {
         color: $black;
-        .drop-down-list {
-            display: block;
-            opacity: 1;
-        }
     } // hover
 }
+
+
 
 // drop-down-list
 .drop-down-list {
@@ -334,10 +336,8 @@
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
     border: 2px solid $very-light-grey;
     color: $black;
-    display: block;
     font-size: 12px;
     font-weight: 700;
-    opacity: 0;
     padding: 20px;
     position: absolute;
     top: 55px;
@@ -354,6 +354,7 @@
     }
 }
 // drop-down-icon-wrapper
+
 
 // poll__component
 .poll__component {

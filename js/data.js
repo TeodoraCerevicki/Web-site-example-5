@@ -1,4 +1,7 @@
 
+var currentUser = {
+    
+}
 
 var posts = [
     // Post

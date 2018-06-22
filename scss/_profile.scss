@@ -524,10 +524,31 @@
         }
         a {
             transition: background-color .3s; 
-            &:hover {
-                background-color: $busy-yellow;
-            }
         }
+    }
+
+    .list-of-react-options__trophy {
+        &.active {
+            background-color: $busy-yellow;
+        } 
+    }
+
+    .list-of-react-options__fav {
+        &.active {
+            background-color: $orange;
+        } 
+    }
+
+    .list-of-react-options__comments {
+        &.active {
+            background-color: $twitter-blue;
+        } 
+    }
+
+    .list-of-react-options__share {
+        &.active {
+            background-color: $dark-purple;
+        } 
     }
     // .list-of-react-options
 

@@ -1,15 +1,12 @@
 
 
 
-var dummyData = window.data
+var dummyData = window.data;
 
-var posts = dummyData.posts
-var postsCount = posts.length
+var posts = dummyData.posts;
+var postsCount = posts.length;
 
-var allComments = dummyData.comments
-console.log("allComments = ", allComments);
-
-console.log("posts length = " + posts.length)
+var allComments = dummyData.comments;
 
 var allPostsHtml = ""
 var singlePostHtml;
@@ -24,13 +21,62 @@ for (var i = 0; i < posts.length; i++) {
 var postsContainer = document.getElementsByClassName('posts--container')[0]
 postsContainer.innerHTML = allPostsHtml
 
-// Bind click handlers
-var allCommentButtons = document.getElementsByClassName("comments--button");
-for (let i = 0; i < allCommentButtons.length; i++) {
-    const button = allCommentButtons[i];
-    button.onclick = commentsButtonClickHandler
+// Bind click handlers - JS 
+// var allCommentButtons = document.getElementsByClassName("comments--button");
+// for (let i = 0; i < allCommentButtons.length; i++) {
+//     const button = allCommentButtons[i];
+//     button.onclick = commentsButtonClickHandler
+// }
+
+
+// Bind click handlers comments- JQuery
+var allCommentButtons = $(".comments--button"); // $(document).find(".comments--button")
+allCommentButtons.on("click", commentsButtonClickHandler);
+// allCommentButtons.css("color", "red")
+
+$(document).on("clik", pageClickHandler);
+
+// e.target
+//
+
+function pageClickHandler(e) {
+
+    target = $(e.target);
+
+    // Did user click comments button
+    commentsButton = target.closest(".comments--button");
+    if (commentsButton.length > 0) {
+        commentsButtonClickHandler(e);
+        return;
+    }
+
+    // Did user click on dropdown button
+    dropdownButton = target.closest(".drop--down--button");
+    if (dropDownButton.length > 0) {
+        dropDownButtonClickHandler(e);
+        return;
+    }
+
+    // ... ... ...
+
+
+    // User clicked somewhere on page
+    // closeAllMenus();
+
 }
 
+function closeAllMenus() {
+    allDropdowns = $(".drop--down--list");
+    allDropdowns.addClass("hide");
+
+}
+
+// Bind click handlers for list of react options
+var allReactButtons = $(".react--button"); // $(document).find(".comments--button")
+allReactButtons.on("click", reactButtonClickHandler);
+
+var dropDownButtons = $(".drop--down--button");
+dropDownButtons.on("click", dropDownButtonClickHandler);
 
 
 function getPostHtml(post) {
@@ -48,11 +94,8 @@ function getPostHtml(post) {
 
     var contentHtml = getPostContentHtml(post);
 
-    var postId = post.id
-    var postCommentsHtml = getPostCommentsHtml(postId);
-
     var html = `
-    <article class="box-widget post-article" data-post-id='` + post.id + `'>
+    <article class="box-widget post-article post--container" data-post-id='` + post.id + `'>
         <header class="post-article__header">
             <div class="info-row-component info-row-component_align-center">
 
@@ -78,14 +121,14 @@ function getPostHtml(post) {
                 </div>
 
                 <!-- drop-down-icon-wrapper -->
-                <div class="drop-down-icon-wrapper">
-                    <a href="">
+                <div class="drop-down-icon-wrapper drop--down--wrapper">
+                    <a href="" class="drop--down--button">
                         <i class="fa fa-circle" aria-hidden="true"></i>
                         <i class="fa fa-circle" aria-hidden="true"></i>
                         <i class="fa fa-circle" aria-hidden="true"></i>
                     </a>
 
-                    <ul class="drop-down-list">
+                    <ul class="drop-down-list drop--down--list hide">
                         <li>
                             <a href="">edit post</a>
                             <a href="" class="delete">delete post</a>
@@ -101,6 +144,58 @@ function getPostHtml(post) {
         ` + contentHtml + `
         </div>
 
+        <!-- list-of-react-options -->
+        <ul class="list-of-react-options">
+
+            <li>
+                <!-- list-of-react-options-item -->
+                <a href="" class="
+                                    circle-icon-component 
+                                    circle-icon-component_small 
+                                    list-of-react-options__trophy 
+                                    react--button">
+                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                </a>
+                <!-- list-of-react-options-item -->
+            </li>
+
+            <li>
+                <!-- list-of-react-options-item -->
+                <a href="" class="
+                                    circle-icon-component 
+                                    circle-icon-component_small 
+                                    list-of-react-options__fav 
+                                    react--button">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                </a>
+                <!-- list-of-react-options-item -->
+            </li>
+
+            <li>
+                <!-- list-of-react-options-item -->
+                <a href="" class="
+                                    circle-icon-component 
+                                    circle-icon-component_small 
+                                    list-of-react-options__comments 
+                                    react--button">
+                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                </a>
+                <!-- list-of-react-options-item -->
+            </li>
+
+            <li>
+                <!-- list-of-react-options-item -->
+                <a href="" class="
+                                    circle-icon-component 
+                                    circle-icon-component_small 
+                                    list-of-react-options__share 
+                                    react--button">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </a>
+                <!-- list-of-react-options-item -->
+            </li>
+        </ul>
+
         <footer class="post-article__footer">
 
             <div class="reaction-footer-flex-wrapper">
@@ -115,8 +210,8 @@ function getPostHtml(post) {
                 
             </div>
 
-            ` + postCommentsHtml + `
-
+            <div class="comment-section comment--section" data-open="false">
+            </div>
         </footer>
     </article>
     `;
@@ -314,12 +409,12 @@ function getPostCommentsHtml(postId) {
 
     console.log("second allComments = ", allComments);
 
-    var postCommentsHtml = "<div class='comment-section comment--section'>"
+    var postCommentsHtml = ""
     for (let i = 0; i < postComments.length; i++) {
         const comment = postComments[i];
         postCommentsHtml += getPostCommentHtml(comment);
     }
-    postCommentsHtml += `</div>`;
+    
 
     return postCommentsHtml;
 }
@@ -354,7 +449,7 @@ function getPostCommentHtml(comment) {
                 </div>
 
                 <!-- drop-down-icon-wrapper -->
-                <div class="drop-down-icon-wrapper">
+                <div class="drop-down-icon-wrapper  drop--down--wrapper">
                     <a href="">
                         <i class="fa fa-circle" aria-hidden="true"></i>
                         <i class="fa fa-circle" aria-hidden="true"></i>
@@ -374,6 +469,7 @@ function getPostCommentHtml(comment) {
                 </p>
             </div>
         </div>
+
 
         <!-- comment-footer -->
         <div class="comment__footer">
@@ -399,19 +495,70 @@ function getPostCommentHtml(comment) {
 // Click handlers
 function commentsButtonClickHandler(e) {
 
+    // prevent default click on link behaviour
     e.preventDefault();
 
-
     // HTML element which was clicked
-    target = e.target;
+    target = $(e.target);
 
     // find post--container above button
+    var postContainer = target.closest(".post--container")
 
     // get postId from data-post-id attribute of post--container
+    var postId = postContainer.attr("data-post-id")
+
+    // generate html for post comments
     
-    // get comments for postId (comments = allComments[postId])
-    
+
     // find comments--section inside post--container
+    var commentsSection = postContainer.find(".comment--section");
+
+    var open = commentsSection.attr("data-open");
+
+    if (open == "true") {
+        var postCommentsHtml = "";
+
+        commentsSection.attr("data-open", false);
+    }
+    else {
+        var postCommentsHtml = getPostCommentsHtml(postId);
+        commentsSection.attr("data-open", true);
+    }
 
     // commentsSection.innerHtml = commentsHtml
+    commentsSection.html(postCommentsHtml);
+
+}
+
+
+function reactButtonClickHandler(e) {
+    // prevent default click on link behaviour
+    e.preventDefault();
+
+    // HTML element which was clicked
+    target = $(e.target);
+
+    button = target.closest(".react--button")
+
+    button.toggleClass("active");
+    console.log("button", button);
+
+}
+
+function dropDownButtonClickHandler(e) {
+    e.preventDefault();
+
+    target = $(e.target);
+
+    var dropDownWrapper = target.closest(".drop--down--wrapper");
+    var dropDownList = dropDownWrapper.find(".drop--down--list");
+
+    // If list was closed, it will be opened, so first close all other menus
+    if (dropDownList.hasClass("hide")) {
+        closeAllMenus();
+    }
+
+    dropDownList.toggleClass("hide");
+    console.log("cons", dropDownList);
+    
 }
