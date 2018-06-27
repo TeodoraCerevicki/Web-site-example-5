@@ -107,6 +107,28 @@
     width: 130px;
 }
 
+.plus-circle-count {
+    background-color: $less-dark-purple;
+    border-radius: 50%;
+    color: $white;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    position: relative;
+    width: 30px;
+    z-index: 1;
+
+    > div {
+        position: absolute;
+        top: 50%;
+        left: 3px;
+        transform: translateY(-50%);
+    }
+
+    i {
+        font-size: 10px;
+    }
+}
 
 // .circle-img
 
@@ -207,12 +229,12 @@
         font-size: 12px;
         font-weight: 700;
         position: absolute;
-        top: 3px;
-        left: 5px;
+        top: 1.5px;
+        left: 3px;
     }
 
     &.notification-component_small-icon {
-        right: 5px;
+        right: 1px;
     }
 
     &.notification-component_medium-icon {
@@ -318,7 +340,7 @@
 // drop-down-icon-wrapper
 .drop-down-icon-wrapper {
     color: $light-grey;
-    font-size: 8px;
+    font-size: 6px;
     padding: 5px;
     transition: color .3s;
     text-align: right;
@@ -326,6 +348,9 @@
     &:hover {
         color: $black;
     } // hover
+    @media screen and (min-width: 768px) {
+        font-size: 8px;  
+    }  
 }
 
 
@@ -641,12 +666,14 @@ input {
         .main-navigation__profile-settings {
             display: flex;
             align-items: center;
+            position: relative;
             span {
                 color: $white;
             }
                 // dropdown-icon-wrapper
-            i {
+            .dropdown-icon-wrapper i {
                 color: $grey;
+                cursor: pointer;
                 transition: color .3s;
 
                 // hover
@@ -656,6 +683,29 @@ input {
                 // hover
             }
             // dropdown-icon-wrapper
+        }
+
+        .user-settings-drop-down {
+            background-color: $dark-purple;
+            padding: 20px;
+            padding-top: 0;
+            position: absolute;
+            top: 44px;
+            right: -8px;
+            z-index: 1;
+            a {
+                color: #e2e2e2;
+                display: block;
+                font-size: 13px;
+                padding-top: 15px;
+                text-transform: capitalize;
+                &:hover {
+                    color: $white;
+                }
+            } // a
+            i {
+                margin-right: 5px;
+            }
         }
 
 

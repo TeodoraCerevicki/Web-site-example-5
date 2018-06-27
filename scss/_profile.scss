@@ -602,6 +602,7 @@
         line-height: 1;
         margin-left: 5px;
         max-width: 120px;
+        text-transform: capitalize;
         a {
             color: $black;
             font-weight: 700;
@@ -620,15 +621,48 @@
     .message-share-section {
         display: flex;
         justify-content: flex-end;
-
-        .number-of-reactions {
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-        // number-of-reactions
     }
-    // message-share-section
+
+     // number-of-reactions
+    .number-of-reactions {
+        position: relative;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    // share__list
+    .share-drop-down {
+        background-color: #fff;
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
+        border: 2px solid #e2e2e2;
+        border-radius: 3px;
+        padding: 20px;
+        position: absolute;
+        right: 38px;
+        bottom: 0;
+        text-transform: capitalize;
+        width: 200px;
+        z-index: 1;
+    }
+
+    .share-drop-down__heading {
+        color: $black;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .share-drop-down__list {
+        font-size: 14px;
+        margin-bottom: 5px;
+        transition: color .3s;
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &:hover {
+            color: $orange;
+        }
+    }
 
     // external-post
     .external-post {

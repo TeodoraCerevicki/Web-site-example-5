@@ -1,64 +1,82 @@
 
 
+const MAX_FAVS = 5;
 
 var dummyData = window.data;
 
 var posts = dummyData.posts;
 var postsCount = posts.length;
 
+
+
 var allComments = dummyData.comments;
 
-var allPostsHtml = ""
-var singlePostHtml;
-var singlePost;
-for (var i = 0; i < posts.length; i++) {
-    console.log("for loop index " + i);
-    singlePost = posts[i];
-    singlePostHtml = getPostHtml(singlePost);
-    allPostsHtml = allPostsHtml + singlePostHtml
-}
+// Render html for all posts
+renderPosts();
 
-var postsContainer = document.getElementsByClassName('posts--container')[0]
-postsContainer.innerHTML = allPostsHtml
+// Render html for active user's elements
+renderActiveUser();
 
-// Bind click handlers - JS 
-// var allCommentButtons = document.getElementsByClassName("comments--button");
-// for (let i = 0; i < allCommentButtons.length; i++) {
-//     const button = allCommentButtons[i];
-//     button.onclick = commentsButtonClickHandler
-// }
-
-
-// Bind click handlers comments- JQuery
-var allCommentButtons = $(".comments--button"); // $(document).find(".comments--button")
-allCommentButtons.on("click", commentsButtonClickHandler);
-// allCommentButtons.css("color", "red")
-
-$(document).on("clik", pageClickHandler);
+// Bind one click handler for whole page
+$(document).on("click", pageClickHandler);
 
 // e.target
 //
 
+
 function pageClickHandler(e) {
 
+    // Get clicked element and determine what was clicked
     target = $(e.target);
+
+    // Did user click reacts button
+    reactButton = target.closest(".react--button");
+    if (reactButton.length > 0) {
+        e.preventDefault();
+        reactButtonClickHandler(reactButton);
+    }
 
     // Did user click comments button
     commentsButton = target.closest(".comments--button");
     if (commentsButton.length > 0) {
-        commentsButtonClickHandler(e);
+        e.preventDefault();
+        commentsButtonClickHandler(commentsButton);
         return;
     }
 
     // Did user click on dropdown button
-    dropdownButton = target.closest(".drop--down--button");
+    dropDownButton = target.closest(".drop--down--button");
     if (dropDownButton.length > 0) {
         dropDownButtonClickHandler(e);
         return;
     }
 
-    // ... ... ...
+    // ... ... ...gf
 
+    shareButton = target.closest(".share--button");
+    if (shareButton.length > 0) {
+        
+        shareButtonClickHandler(e);
+        return;
+    }
+
+    userDropdownButton = target.closest(".user--drop--down--button");
+    if (userDropdownButton.length > 0) {
+        userDropdownButtonClickHandler(e);
+        return;
+    }
+
+    favoriteClicked = target.closest(".fav--react--button");
+    if(favoriteClicked.length > 0) {
+        favoriteClickedHandler(favoriteClicked);
+        return;
+    }
+
+    shareClicked = target.closest(".share--react--button");
+    if (shareClicked.length > 0) {
+        shareClickedHandler(shareClicked);
+        return;
+    }
 
     // User clicked somewhere on page
     // closeAllMenus();
@@ -71,13 +89,221 @@ function closeAllMenus() {
 
 }
 
-// Bind click handlers for list of react options
-var allReactButtons = $(".react--button"); // $(document).find(".comments--button")
-allReactButtons.on("click", reactButtonClickHandler);
 
-var dropDownButtons = $(".drop--down--button");
-dropDownButtons.on("click", dropDownButtonClickHandler);
+function renderPosts() {
 
+    var allPostsHtml = ""
+    var singlePostHtml;
+    var singlePost;
+    for (var i = 0; i < posts.length; i++) {
+        singlePost = posts[i];
+        singlePostHtml = getPostHtml(singlePost);
+        allPostsHtml = allPostsHtml + singlePostHtml
+    }
+
+    var postsContainer = document.getElementsByClassName('posts--container')[0]
+    postsContainer.innerHTML = allPostsHtml
+}
+
+function renderActiveUser() {
+
+    var activeUser = dummyData.currentUser;
+
+    var mainNav = $(".main--nav");
+
+    var userNav = mainNav.find(".user--nav--container");
+
+    var navHtml = getNavHtml(activeUser);
+    
+    userNav.html(navHtml);
+
+    var notification = mainNav.find(".user--notifications--container");
+
+    var notificationHtml = getNotifiHtml(activeUser);
+
+    notification.html(notificationHtml);
+
+
+}
+
+function getNavHtml(active) {
+
+    var userNavHtml = `
+        <div class="info-row-component info-row-component_align-center">
+
+            <!-- image-text-component -->
+            <div class="image-text-component">
+
+                <div class="image-text-component__image">
+
+                    <!-- online-status-component -->
+                    <div class="online-status-circle online-status-circle_border-purple online-status-circle_active">
+                    </div>
+                    <!-- online-status-component -->
+
+                    <!-- circle-img-component -->
+                    <div class="circle-img-component circle-img-component_small">
+                        <img src=" ` + active.image + ` " alt="profile image" />
+                    </div>
+                    
+                </div>
+
+                <!-- text-->
+                <div class="image-text-component__text">
+
+                    <span class="image-text-component__title">
+                        <a href=" ` + active.url + ` " target="_blank"> ` + active.fullName + ` </a>
+                    </span>
+
+                    <span class="image-text-component__uppercase image-text-component__span"> ` + active.nickname + ` </span>
+
+                </div>
+                <!-- text -->
+            </div>
+            <!-- image-text-component -->
+
+
+            <!-- dropdown-icon-wrapper -->
+            <div class="dropdown-icon-wrapper user--drop--down--button">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+            <!-- dropdown-icon-wrapper -->
+
+            <!-- user-settings-drop-down -->
+            <ul class="user-settings-drop-down user--settings--drop--down hide">
+                <li>
+                    <a href="">
+                        <i class="fa fa-line-chart" aria-hidden="true"></i>
+                        activity log
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa fa-shield" aria-hidden="true"></i>
+                        news preferences
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                        settings
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        log out
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    `;
+
+    return userNavHtml;  
+}
+
+function userDropdownButtonClickHandler(e) {
+
+    e.preventDefault();
+
+    var target = $(e.target);
+
+    var button = target.closest(".user--drop--down--button");
+    
+
+    var dropDown = button.siblings(".user--settings--drop--down");
+
+    console.log("dropDown",dropDown);
+
+    dropDown.toggleClass("hide");
+
+}
+
+function getNotifiHtml(active) {
+
+    // message
+    var messageCount = active.unreadMessagesCount;
+
+    var messageCountBadge = "";
+
+    if (messageCount > 0) {
+        messageCountBadge = "<span>" + messageCount + "</span>";
+    } else {
+        messageCountBadge = "";
+    }
+
+    // request
+    var requestCount = active.friendRequestsCount;
+
+    var requestCountBadge = "";
+
+    if (requestCount > 0) {
+        requestCountBadge = "<span>" + requestCount + "</span>";
+    } else {
+        requestCountBadge = "";
+    }
+
+    // notifiction
+    var notificationCount = active.notificationsCount;
+
+    var notificationCountBadge = "";
+
+    if (notificationCount > 0) {
+        notificationCountBadge = "<span>" + notificationCount + "</span>";
+    } else {
+        notificationCountBadge = "";
+    }
+
+
+    var notiHtml = `
+        <!-- notification-icon-wrapper -->
+        <div class="main-navigation__notification-item">
+            <a href="">
+                <!-- notification-number -->
+                <div class="notification-component notification-component_small-icon ">
+                    <span>` + notificationCountBadge + `</span>
+                </div>
+                <!-- icon -->
+                <div class="main-navigation__notification-icon">
+                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                </div>
+            </a>
+        </div>
+
+        <!-- notification-icon-wrapper -->
+        <div class="main-navigation__notification-item">
+            <a href="">
+                <!-- notification-number -->
+                <div class="notification-component notification-component_small-icon ">
+                    <span>` + messageCountBadge + `</span>
+                </div>
+
+                <!-- icon -->
+                <div class="main-navigation__notification-icon">
+                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                </div>
+            </a>
+        </div>
+
+
+        <!-- notification-icon-wrapper -->
+        <div class="main-navigation__notification-item">
+            <a href="">
+                <!-- notification-number -->
+                <div class="notification-component notification-component_small-icon ">
+                    <span>` + requestCountBadge + `</span>
+                </div>
+                <!-- icon -->
+                <div class="main-navigation__notification-icon">
+                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                </div>
+            </a>
+        </div>
+    `;
+
+    return notiHtml;
+}
 
 function getPostHtml(post) {
 
@@ -89,8 +315,9 @@ function getPostHtml(post) {
     var comments = post.commentCount;
     var commentsHtml = getPostCommentsIconHtml(comments);
 
-    var share = post.sharesCount;
-    var shareHtml = getPostShareHtml(share);
+    var shareHtml = getPostShareHtml(post);
+
+    
 
     var contentHtml = getPostContentHtml(post);
 
@@ -110,7 +337,7 @@ function getPostHtml(post) {
                     </div>
 
                     <div class="image-text-component__text">
-                        <a>` + post.userName + `</a>
+                        <a href="` + post.userUrl + `"  target="_blank">` + post.userName + `</a>
                         <span class="image-text-component__shared-media">shared a
                             <a href="">link</a>
                         </span>
@@ -165,7 +392,8 @@ function getPostHtml(post) {
                                     circle-icon-component 
                                     circle-icon-component_small 
                                     list-of-react-options__fav 
-                                    react--button">
+                                    react--button
+                                    fav--react--button">
                     <i class="fa fa-heart" aria-hidden="true"></i>
                 </a>
                 <!-- list-of-react-options-item -->
@@ -189,7 +417,8 @@ function getPostHtml(post) {
                                     circle-icon-component 
                                     circle-icon-component_small 
                                     list-of-react-options__share 
-                                    react--button">
+                                    react--button
+                                    share--react--button">
                     <i class="fa fa-share-alt" aria-hidden="true"></i>
                 </a>
                 <!-- list-of-react-options-item -->
@@ -200,7 +429,7 @@ function getPostHtml(post) {
 
             <div class="reaction-footer-flex-wrapper">
                 <!-- like-section -->
-                <div class="like-section">
+                <div class="like-section favourites--section">
                     ` + favsHtml + `
                 </div>
 
@@ -254,8 +483,19 @@ function getPostContentHtml (post) {
 // User circles + extended info
 function getPostFavouritesHtml(favourites) {
 
-    
     var favsCount = favourites.length;
+
+    var forLoopLimit;
+    var shouldAddPlusCircle;
+    var plusCircleCount;
+    if (favsCount <= MAX_FAVS) {
+        forLoopLimit = favsCount;
+        shouldAddPlusCircle = false;
+    } else {
+        forLoopLimit = MAX_FAVS;
+        shouldAddPlusCircle = true;
+        plusCircleCount = favsCount - forLoopLimit;
+    }
 
     var favsHtml = `
 
@@ -270,19 +510,32 @@ function getPostFavouritesHtml(favourites) {
 
     var isLastUser = false;
     var currentFavourite;
-    var lastIndex = favsCount - 1;
-    for (var i = 0; i < favsCount; i++) {
+    var lastIndex = forLoopLimit - 1;
+    for (var i = 0; i < forLoopLimit; i++) {
         currentFavourite = favourites[i];
         favsHtml += getPostFavouriteHtml(currentFavourite);
 
         isLastUser = (i == lastIndex);
         if (isLastUser) {
+
+            if (shouldAddPlusCircle) {
+                favsHtml += `
+                <div class="plus-circle-count">
+                    <div>
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        ` + plusCircleCount + `
+                    </div>
+                </div>
+                `
+            }
+
             favsHtml += `</div>`
             var howManyMore = favsCount - 1;
             favsHtml += getPostFavouriteExtendedHtml(currentFavourite, howManyMore);
         }
-
     }
+
+    
 
     
     return favsHtml;
@@ -331,16 +584,30 @@ function getPostCommentsIconHtml(comments, postId) {
 }
 
 // Share 
-function getPostShareHtml(share) {
+function getPostShareHtml(post) {
 
-    var number = share;
+    var number = post.sharesCount;
+
+    var postId = post.postId;
+
+    console.log("post", post);
+    
+
+    var shareListHtml = getShareListHtml(post.shareList);
 
     var shareHtml = `
-    <div class="number-of-reactions">
-        <a href="">
-        <i class="fa fa-share-alt" aria-hidden="true"></i>
+    <div class="number-of-reactions share--container" data-post-id='` + postId + `'>
+        <a href="" class=" share--button">
+            <i class="fa fa-share-alt" aria-hidden="true"></i>
+            <span class="">` + number + `</span>
         </a>
-        <span class="">` + number + `</span>
+
+        <div class="share-drop-down hide share--section">
+            <h3 class="share-drop-down__heading">Shared by:</h3>
+            <ul class='share--section--ul'>
+            ` + shareListHtml + `
+            </ul>
+        </div>
     </div>
     `;
 
@@ -375,7 +642,7 @@ function getExternalPostHtml(external) {
                         </div>
 
                         <div class="image-text-component__text">
-                            <a>` + external.externalUserName + `</a>
+                            <a href="` + external.externalUrl + `"  target="_blank">` + external.externalUserName + `</a>
 
                             <span class="time-of-post">
                                 3 days ago
@@ -491,18 +758,17 @@ function getPostCommentHtml(comment) {
 }
 
 
-
 // Click handlers
-function commentsButtonClickHandler(e) {
+function commentsButtonClickHandler(button) {
 
     // prevent default click on link behaviour
-    e.preventDefault();
+    // e.preventDefault();
 
     // HTML element which was clicked
-    target = $(e.target);
+    // target = $(e.target);
 
     // find post--container above button
-    var postContainer = target.closest(".post--container")
+    var postContainer = button.closest(".post--container")
 
     // get postId from data-post-id attribute of post--container
     var postId = postContainer.attr("data-post-id")
@@ -530,19 +796,58 @@ function commentsButtonClickHandler(e) {
 
 }
 
+function shareButtonClickHandler(e) {
 
-function reactButtonClickHandler(e) {
-    // prevent default click on link behaviour
     e.preventDefault();
 
     // HTML element which was clicked
     target = $(e.target);
 
-    button = target.closest(".react--button")
+    var postContainer = target.closest(".post--container")
+
+    // get postId from data-post-id attribute of post--container
+    var postId = postContainer.attr("data-post-id")
+
+    var share = postContainer.find(".share--section");
+
+    share.toggleClass("hide");
+}
+
+function getShareListHtml(shareList) {
+
+    var shareListHtml = "";
+
+    for (var i = 0; i< shareList.length; i++) {
+         element = shareList[i];
+        
+         shareListHtml += shareListItem(element);
+    }
+
+    return shareListHtml;
+}
+
+function shareListItem(element) {
+
+    var shareListItemHtml = `
+        <li class="share-drop-down__list">
+            <a href="` + element.url + `" target="_blank">` + element.name + `</a>
+        </li>
+    `
+
+    return shareListItemHtml;
+}
+
+
+function reactButtonClickHandler(button) {
+    // prevent default click on link behaviour
+    // e.preventDefault();
+
+    // HTML element which was clicked
+    // target = $(e.target);
+
+    // button = target.closest(".react--button")
 
     button.toggleClass("active");
-    console.log("button", button);
-
 }
 
 function dropDownButtonClickHandler(e) {
@@ -550,7 +855,11 @@ function dropDownButtonClickHandler(e) {
 
     target = $(e.target);
 
+    console.log("target", target);
+
     var dropDownWrapper = target.closest(".drop--down--wrapper");
+
+    console.log("dropDownWrapper", dropDownWrapper);
     var dropDownList = dropDownWrapper.find(".drop--down--list");
 
     // If list was closed, it will be opened, so first close all other menus
@@ -559,6 +868,139 @@ function dropDownButtonClickHandler(e) {
     }
 
     dropDownList.toggleClass("hide");
-    console.log("cons", dropDownList);
+    console.log("dropDownList", dropDownList);
     
+}
+
+function favoriteClickedHandler(fav) {
+
+    var addUser = fav.hasClass("active");
+
+    // nadji post--container
+    var postContainer = fav.closest(".post--container"); 
+
+    // uzmi data-post-id sa post--containera 
+    var postId = postContainer.attr("data-post-id");
+
+    var currentPost;
+    var postWithGivenId;
+
+    // nadji post sa tim postId-em 
+    for (var i=0; i < postsCount; i++) {
+        currentPost = posts[i];
+        if (postId == currentPost.id) {
+            postWithGivenId = currentPost;
+            break;
+        }
+    }
+
+    var favs = postWithGivenId.favourites 
+
+    if (addUser) {
+
+        // add me to favourites
+
+        var currentUserFav = {
+            "id" : currentUser.id,
+            "name" : "You",
+            "image" : currentUser.image,
+            "profileLink" : currentUser.url
+        }
+
+        favs.push(currentUserFav);
+
+    } else {
+
+        // remove me from favourites
+
+        // for loop, compare element id with current user id, if equal, remove and break
+
+        console.log("hola");
+        for (var i = 0; i < favs.length; i ++) {
+            
+            if (favs[i].id == currentUser.id) {
+                
+                favs.splice(i, 1);
+                break;
+            }
+        }
+        
+    }    
+    
+
+    var newHtml = getPostFavouritesHtml(favs);
+
+    // u post--container nadji favourites--section 
+    var favSection = postContainer.find(".favourites--section");
+
+    // pljusni newHtml u favourites--section
+    favSection.html(newHtml);
+    
+}
+
+function shareClickedHandler(share) {
+
+    var addUser = share.hasClass("active");
+
+    // nadji post--container
+    var postContainer = share.closest(".post--container");
+
+    // uzmi data-post-id sa post--containera 
+    var postId = postContainer.attr("data-post-id");
+
+    var currentId;
+    var postWithNewId;
+
+    // nadji post sa tim postId-em 
+    for (var i=0; i < postsCount; i++) {
+        
+        currentPost = posts[i];
+        
+        if (postId == currentPost.id) {
+            
+            postWithNewId = currentPost;
+            break;
+        }
+
+    }
+
+    var shareList = postWithNewId.shareList;
+
+    // add me to shares
+    if(addUser) {
+
+        var currentUserShare = {
+            "id" : currentUser.id,
+            "name" : "you",
+            "url" : currentUser.url
+        }
+
+        shareList.push(currentUserShare);
+        postWithNewId.sharesCount++;
+    } else {
+        // remove me from shares
+
+        for ( var i = 0; i < shareList.length; i ++) {
+
+            if (shareList[i].id == currentUser.id) {
+
+                shareList.splice(i, 1);
+                break;
+            }
+        }
+
+
+        postWithNewId.sharesCount--;
+    }
+
+
+    var newHtml = getPostShareHtml(postWithNewId);
+    // u post--container nadji favourites--section
+    
+    shareSection = postContainer.find(".share--container");
+
+    // pljusni newHtml u favourites--section
+
+    shareSection.html(newHtml);
+
 }
