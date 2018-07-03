@@ -153,6 +153,8 @@
         > li {
             background-color: $darker-white;
             cursor: pointer;
+            display: flex;
+            align-items: center;
             flex: 1 1 0;
             padding: 10px 20px;
             text-align: center;
@@ -168,9 +170,6 @@
         .sign-in-list__item  > i {
             color: $grey;
             font-size: 20px;
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
         }
 
         .sign-in-list__item_active {
@@ -266,18 +265,15 @@
         border-top: 1px solid #bfc3c9;
         margin: 20px 0;
         text-align: center;
-        position: relative;
 
         span {
             background-color: #fff;
             color: #bfc3c9;
             font-size: 11px;
+            position: relative;
+            padding: 0 16px;
+            top: -10px;
             text-transform: uppercase;
-            position: absolute;
-            width: 74px;
-            top: -4px;
-            left: 50%;
-            transform: translateX(-50%);
         } // span
     }
 

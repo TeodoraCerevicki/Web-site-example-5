@@ -1,0 +1,210 @@
+@import 'variables';
+
+h1, h2, button {
+    font-family   : 'Pacifico', cursive;
+    text-transform: capitalize;
+}
+h1 {
+    margin-bottom: 35px;
+}
+
+h2, button {
+    font-weight: 500;
+}
+
+.gallery, 
+.grid, 
+.media-section {
+    background-color: $light-orange;
+    border-bottom   : 9px dashed $flex-green;
+    color           : $flex-green;
+    padding         : 40px 40px 60px;
+}
+
+.container-flex {
+    margin: 0 auto;
+    width : 40%;
+}
+
+.photo-wrapper {
+    align-items    : flex-start;
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: center;
+    img {
+        cursor    : pointer;
+        transition: transform .3s;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.photo-wrapper > img {
+    height: 100px;
+    width : 100px;
+}
+
+// Cards
+.cards {
+    background-color: $flex-green;
+    border-bottom   : 9px dashed $light-orange;
+    color           : $light-orange;
+    padding         : 40px 40px 60px;
+}
+
+.card-wrapper {    
+    display        : flex;
+    flex-wrap      : wrap;
+    justify-content: space-around;
+    align-items    : center;
+}
+
+.card {
+    background-color       : #fff;
+    border-top-left-radius : 5px;
+    border-top-right-radius: 5px;
+    flex                   : 0 0 250px;
+    overflow               : hidden;
+    text-transform         : capitalize;
+}
+
+.card__header {
+    background-color: orange;
+    padding         : 9px;
+}
+
+.card__body {
+    align-items    : center;
+    display        : flex;
+    flex-direction : column;
+    flex           : 0 0 auto;
+    height         : 200px;
+    justify-content: space-around;
+    padding        : 20px 0;
+}
+
+.card__content li {
+    font-style    : italic;
+    padding-bottom: 5px;
+}
+
+.card__button {
+    background-color: orange;
+    border          : 1px solid orange;
+    border-radius   : 5px;
+    color           : #f7efe1;
+    cursor          : pointer;
+    padding         : 10px;
+    text-transform  : capitalize;
+    transition      : color .3s,
+                background-color .3s;
+    &:hover {
+        background-color: #f7efe1;
+        color           : orange;
+    }
+}
+
+// Grid
+.row {
+    align-items: center;
+    display    : flex;
+}
+
+.row__item {
+    background-color: #C8EAD3;
+    flex            : 1;
+    margin          : 0 2px;
+    padding         : 10px;
+    > article {
+        background-color: #CEDADA;
+    }
+}
+
+// Media
+
+.media {
+    background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/V3GIUd5/videoblocks-drawing-triangle-shapes-on-white-background-animation-loop-yellow_rxeuhd8uqe_thumbnail-small01.jpg");
+    display         : flex;
+    justify-content : space-around;
+    margin          : 0 auto;
+    padding         : 10px;
+    width           : 622px;
+}
+
+.media__object {
+    border-radius: 50%;
+    height       : 60px;
+    width        : 60px;
+}
+
+.media__body {
+    background-color: rgba(255,255,255,0.7);
+    display         : flex;
+    flex-direction  : column;
+    height          : 400px;
+    justify-content : space-around;
+    img {
+        height: 300px;
+    }
+}
+// Web Layout
+
+ body {
+    > header, > footer {
+        background-color: #45c1a8;
+        height          : 10vh;
+    }
+
+    > header {
+        padding: 0 10px;
+    }
+ }
+
+// main must be made to fill the available remaining space within the flex-container
+main {
+    display: flex;
+    flex   : 1;
+ }
+
+// Have the nav and aside take up fixed widths:
+ nav,
+aside {
+    background-color: #5f5d60;
+    width           : 20vw;
+}
+
+// Ensure that article takes up the remaining available space:
+// article {
+//     flex: 1;
+//  }
+
+.main-article {
+    height  : calc(100vh - 20vh);
+    overflow: auto;
+}
+
+ // Re-order the flex-items so nav is displayed first:
+nav {
+    order: -1;
+  }
+
+form {
+    display: flex;
+}
+
+.form__field {
+    background-color: #fff;
+    flex: 1
+}
+
+.form__item {
+    align-self: flex-end;
+    background-color: $dark-purple;
+    border: none;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+  

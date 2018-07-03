@@ -4,7 +4,7 @@ const MAX_FAVS = 5;
 
 var dummyData = window.data;
 
-var posts = dummyData.posts;
+var posts      = dummyData.posts;
 var postsCount = posts.length;
 
 
@@ -17,12 +17,12 @@ renderPosts();
 // Render html for active user's elements
 renderActiveUser();
 
-// Bind one click handler for whole page
+
+/*
+    Binding one click handler for whole page
+    function is checking what is clicked
+*/
 $(document).on("click", pageClickHandler);
-
-// e.target
-//
-
 
 function pageClickHandler(e) {
 
@@ -47,7 +47,8 @@ function pageClickHandler(e) {
     // Did user click on dropdown button
     dropDownButton = target.closest(".drop--down--button");
     if (dropDownButton.length > 0) {
-        dropDownButtonClickHandler(e);
+        e.preventDefault();
+        dropDownButtonClickHandler(dropDownButton);
         return;
     }
 
@@ -66,12 +67,14 @@ function pageClickHandler(e) {
         return;
     }
 
+    // click event for favorite button (add to favorite list)
     favoriteClicked = target.closest(".fav--react--button");
     if(favoriteClicked.length > 0) {
         favoriteClickedHandler(favoriteClicked);
         return;
     }
 
+    // click event for share button (add to share list)
     shareClicked = target.closest(".share--react--button");
     if (shareClicked.length > 0) {
         shareClickedHandler(shareClicked);
@@ -79,14 +82,13 @@ function pageClickHandler(e) {
     }
 
     // User clicked somewhere on page
-    // closeAllMenus();
+    closeAllMenus();
 
 }
 
 function closeAllMenus() {
     allDropdowns = $(".drop--down--list");
     allDropdowns.addClass("hide");
-
 }
 
 
@@ -96,13 +98,13 @@ function renderPosts() {
     var singlePostHtml;
     var singlePost;
     for (var i = 0; i < posts.length; i++) {
-        singlePost = posts[i];
+        singlePost     = posts[i];
         singlePostHtml = getPostHtml(singlePost);
-        allPostsHtml = allPostsHtml + singlePostHtml
+        allPostsHtml   = allPostsHtml + singlePostHtml
     }
 
-    var postsContainer = document.getElementsByClassName('posts--container')[0]
-    postsContainer.innerHTML = allPostsHtml
+    var postsContainer           = document.getElementsByClassName('posts--container')[0]
+        postsContainer.innerHTML = allPostsHtml
 }
 
 function renderActiveUser() {
@@ -122,40 +124,38 @@ function renderActiveUser() {
     var notificationHtml = getNotifiHtml(activeUser);
 
     notification.html(notificationHtml);
-
-
 }
 
 function getNavHtml(active) {
 
     var userNavHtml = `
-        <div class="info-row-component info-row-component_align-center">
+        <div class = "info-row-component info-row-component_align-center">
 
             <!-- image-text-component -->
-            <div class="image-text-component">
+            <div class = "image-text-component">
 
-                <div class="image-text-component__image">
+                <div class = "image-text-component__image">
 
                     <!-- online-status-component -->
-                    <div class="online-status-circle online-status-circle_border-purple online-status-circle_active">
+                    <div class = "online-status-circle online-status-circle_border-purple online-status-circle_active">
                     </div>
                     <!-- online-status-component -->
 
                     <!-- circle-img-component -->
-                    <div class="circle-img-component circle-img-component_small">
-                        <img src=" ` + active.image + ` " alt="profile image" />
+                    <div class = "circle-img-component circle-img-component_small">
+                    <img src   = " ` + active.image + ` " alt = "profile image" />
                     </div>
                     
                 </div>
 
                 <!-- text-->
-                <div class="image-text-component__text">
+                <div class = "image-text-component__text">
 
-                    <span class="image-text-component__title">
-                        <a href=" ` + active.url + ` " target="_blank"> ` + active.fullName + ` </a>
+                    <span class = "image-text-component__title">
+                    <a    href  = " ` + active.url + ` " target = "_blank"> ` + active.fullName + ` </a>
                     </span>
 
-                    <span class="image-text-component__uppercase image-text-component__span"> ` + active.nickname + ` </span>
+                    <span class = "image-text-component__uppercase image-text-component__span"> ` + active.nickname + ` </span>
 
                 </div>
                 <!-- text -->
@@ -164,34 +164,34 @@ function getNavHtml(active) {
 
 
             <!-- dropdown-icon-wrapper -->
-            <div class="dropdown-icon-wrapper user--drop--down--button">
-                <i class="fa fa-angle-down" aria-hidden="true"></i>
+            <div class = "dropdown-icon-wrapper user--drop--down--button">
+            <i   class = "fa fa-angle-down" aria-hidden = "true"></i>
             </div>
             <!-- dropdown-icon-wrapper -->
 
             <!-- user-settings-drop-down -->
-            <ul class="user-settings-drop-down user--settings--drop--down hide">
+            <ul class = "user-settings-drop-down user--settings--drop--down hide">
                 <li>
-                    <a href="">
-                        <i class="fa fa-line-chart" aria-hidden="true"></i>
+                    <a href  = "">
+                    <i class = "fa fa-line-chart" aria-hidden = "true"></i>
                         activity log
                     </a>
                 </li>
                 <li>
-                    <a href="">
-                        <i class="fa fa-shield" aria-hidden="true"></i>
+                    <a href  = "">
+                    <i class = "fa fa-shield" aria-hidden = "true"></i>
                         news preferences
                     </a>
                 </li>
                 <li>
-                    <a href="">
-                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                    <a href  = "">
+                    <i class = "fa fa-cogs" aria-hidden = "true"></i>
                         settings
                     </a>
                 </li>
                 <li>
-                    <a href="">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    <a href  = "">
+                    <i class = "fa fa-sign-out" aria-hidden = "true"></i>
                         log out
                     </a>
                 </li>
@@ -258,45 +258,45 @@ function getNotifiHtml(active) {
 
     var notiHtml = `
         <!-- notification-icon-wrapper -->
-        <div class="main-navigation__notification-item">
-            <a href="">
+        <div class = "main-navigation__notification-item">
+        <a   href  = "">
                 <!-- notification-number -->
-                <div class="notification-component notification-component_small-icon ">
+                <div class = "notification-component notification-component_small-icon ">
                     <span>` + notificationCountBadge + `</span>
                 </div>
                 <!-- icon -->
-                <div class="main-navigation__notification-icon">
-                    <i class="fa fa-smile-o" aria-hidden="true"></i>
+                <div class = "main-navigation__notification-icon">
+                <i   class = "fa fa-smile-o" aria-hidden = "true"></i>
                 </div>
             </a>
         </div>
 
         <!-- notification-icon-wrapper -->
-        <div class="main-navigation__notification-item">
-            <a href="">
+        <div class = "main-navigation__notification-item">
+        <a   href  = "">
                 <!-- notification-number -->
-                <div class="notification-component notification-component_small-icon ">
+                <div class = "notification-component notification-component_small-icon ">
                     <span>` + messageCountBadge + `</span>
                 </div>
 
                 <!-- icon -->
-                <div class="main-navigation__notification-icon">
-                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                <div class = "main-navigation__notification-icon">
+                <i   class = "fa fa-commenting-o" aria-hidden = "true"></i>
                 </div>
             </a>
         </div>
 
 
         <!-- notification-icon-wrapper -->
-        <div class="main-navigation__notification-item">
-            <a href="">
+        <div class = "main-navigation__notification-item">
+        <a   href  = "">
                 <!-- notification-number -->
-                <div class="notification-component notification-component_small-icon ">
+                <div class = "notification-component notification-component_small-icon ">
                     <span>` + requestCountBadge + `</span>
                 </div>
                 <!-- icon -->
-                <div class="main-navigation__notification-icon">
-                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                <div class = "main-navigation__notification-icon">
+                <i   class = "fa fa-user-plus" aria-hidden = "true"></i>
                 </div>
             </a>
         </div>
@@ -307,12 +307,12 @@ function getNotifiHtml(active) {
 
 function getPostHtml(post) {
 
-    var favs = post.favourites;
+    var favs      = post.favourites;
     var favsCount = favs.length;
 
     var favsHtml = getPostFavouritesHtml(favs);
 
-    var comments = post.commentCount;
+    var comments     = post.commentCount;
     var commentsHtml = getPostCommentsIconHtml(comments);
 
     var shareHtml = getPostShareHtml(post);
@@ -322,57 +322,57 @@ function getPostHtml(post) {
     var contentHtml = getPostContentHtml(post);
 
     var html = `
-    <article class="box-widget post-article post--container" data-post-id='` + post.id + `'>
-        <header class="post-article__header">
-            <div class="info-row-component info-row-component_align-center">
+    <article class = "box-widget post-article post--container" data-post-id = '` + post.id + `'>
+    <header  class = "post-article__header">
+    <div     class = "info-row-component info-row-component_align-center">
 
-                <div class="image-text-component">
-                    <div class="image-text-component__image">
+                <div class = "image-text-component">
+                <div class = "image-text-component__image">
 
                         <!-- circle-img-component -->
-                        <div class="circle-img-component circle-img-component_medium">
-                            <img src="` + post.userImage + `" alt="profile image" />
+                        <div class = "circle-img-component circle-img-component_medium">
+                        <img src   = "` + post.userImage + `" alt = "profile image" />
                         </div>
                         
                     </div>
 
-                    <div class="image-text-component__text">
-                        <a href="` + post.userUrl + `"  target="_blank">` + post.userName + `</a>
-                        <span class="image-text-component__shared-media">shared a
-                            <a href="">link</a>
+                    <div  class = "image-text-component__text">
+                    <a    href  = "` + post.userUrl + `"  target = "_blank">` + post.userName + `</a>
+                    <span class = "image-text-component__shared-media">shared a
+                    <a    href  = "">link</a>
                         </span>
-                        <span class="time-of-post">
+                        <span class = "time-of-post">
                             6h ago
                         </span>
                     </div>
                 </div>
 
                 <!-- drop-down-icon-wrapper -->
-                <div class="drop-down-icon-wrapper drop--down--wrapper">
-                    <a href="" class="drop--down--button">
-                        <i class="fa fa-circle" aria-hidden="true"></i>
-                        <i class="fa fa-circle" aria-hidden="true"></i>
-                        <i class="fa fa-circle" aria-hidden="true"></i>
+                <div class = "drop-down-icon-wrapper drop--down--wrapper">
+                <a   href  = "" class                   = "drop--down--button">
+                <i   class = "fa fa-circle" aria-hidden = "true"></i>
+                <i   class = "fa fa-circle" aria-hidden = "true"></i>
+                <i   class = "fa fa-circle" aria-hidden = "true"></i>
                     </a>
 
-                    <ul class="drop-down-list drop--down--list hide">
+                    <ul class = "drop-down-list drop--down--list hide">
                         <li>
-                            <a href="">edit post</a>
-                            <a href="" class="delete">delete post</a>
-                            <a href="">turn off notification</a>
-                            <a href="">select as a feature</a>
+                            <a href = "">edit post</a>
+                            <a href = "" class = "delete">delete post</a>
+                            <a href = "">turn off notification</a>
+                            <a href = "">select as a feature</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </header>
 
-        <div class='post-article__content'>
+        <div class = 'post-article__content'>
         ` + contentHtml + `
         </div>
 
         <!-- list-of-react-options -->
-        <ul class="list-of-react-options">
+        <ul class = "list-of-react-options">
 
             <li>
                 <!-- list-of-react-options-item -->
@@ -381,7 +381,7 @@ function getPostHtml(post) {
                                     circle-icon-component_small 
                                     list-of-react-options__trophy 
                                     react--button">
-                    <i class="fa fa-trophy" aria-hidden="true"></i>
+                    <i class = "fa fa-trophy" aria-hidden = "true"></i>
                 </a>
                 <!-- list-of-react-options-item -->
             </li>
@@ -394,7 +394,7 @@ function getPostHtml(post) {
                                     list-of-react-options__fav 
                                     react--button
                                     fav--react--button">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
+                    <i class = "fa fa-heart" aria-hidden = "true"></i>
                 </a>
                 <!-- list-of-react-options-item -->
             </li>
@@ -406,7 +406,7 @@ function getPostHtml(post) {
                                     circle-icon-component_small 
                                     list-of-react-options__comments 
                                     react--button">
-                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                    <i class = "fa fa-commenting-o" aria-hidden = "true"></i>
                 </a>
                 <!-- list-of-react-options-item -->
             </li>
@@ -419,27 +419,27 @@ function getPostHtml(post) {
                                     list-of-react-options__share 
                                     react--button
                                     share--react--button">
-                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                    <i class = "fa fa-share-alt" aria-hidden = "true"></i>
                 </a>
                 <!-- list-of-react-options-item -->
             </li>
         </ul>
 
-        <footer class="post-article__footer">
+        <footer class = "post-article__footer">
 
-            <div class="reaction-footer-flex-wrapper">
+            <div class = "reaction-footer-flex-wrapper">
                 <!-- like-section -->
-                <div class="like-section favourites--section">
+                <div class = "like-section favourites--section">
                     ` + favsHtml + `
                 </div>
 
-                <div class="message-share-section">
+                <div class = "message-share-section">
                     ` + commentsHtml + shareHtml + `
                 </div>
                 
             </div>
 
-            <div class="comment-section comment--section" data-open="false">
+            <div class = "comment-section comment--section" data-open = "false">
             </div>
         </footer>
     </article>
@@ -452,22 +452,22 @@ function getPostContentHtml (post) {
     var postMedia = "";
 
 
-    var external = post.externalPost;
+    var external     = post.externalPost;
     var externalHtml = getExternalPostHtml(external);
 
     if (post.videoLink) {
         postMedia = `<iframe src="` + post.videoLink + `" frameborder="0" allow="encrypted-media"></iframe>`;
     } else {
-        postMedia= `<img src="` + post.imgLink + `" alt="photo">`;
+        postMedia = `<img src="` + post.imgLink + `" alt="photo">`;
     }
     var contentHtml = `
-        <div class="post-article__text">
+        <div class = "post-article__text">
             <p>
             ` + post.postText + `
             </p>
         </div>
 
-        <div class="post-article__media">
+        <div class = "post-article__media">
             ` + postMedia + `
         </div>
 
@@ -489,21 +489,21 @@ function getPostFavouritesHtml(favourites) {
     var shouldAddPlusCircle;
     var plusCircleCount;
     if (favsCount <= MAX_FAVS) {
-        forLoopLimit = favsCount;
+        forLoopLimit        = favsCount;
         shouldAddPlusCircle = false;
     } else {
-        forLoopLimit = MAX_FAVS;
+        forLoopLimit        = MAX_FAVS;
         shouldAddPlusCircle = true;
-        plusCircleCount = favsCount - forLoopLimit;
+        plusCircleCount     = favsCount - forLoopLimit;
     }
 
     var favsHtml = `
 
-        <div class="number-of-reactions likes number-of-reactions_liked">
-            <a href="">
-                <i class="fa fa-heart" aria-hidden="true"></i>
+        <div class = "number-of-reactions likes number-of-reactions_liked">
+        <a   href  = "">
+        <i   class = "fa fa-heart" aria-hidden = "true"></i>
             </a>
-            <span class="">` + favsCount +`</span>
+            <span class = "">` + favsCount +`</span>
         </div>`;
 
     favsHtml += `<div class='overlapping'>`
@@ -512,26 +512,26 @@ function getPostFavouritesHtml(favourites) {
     var currentFavourite;
     var lastIndex = forLoopLimit - 1;
     for (var i = 0; i < forLoopLimit; i++) {
-        currentFavourite = favourites[i];
-        favsHtml += getPostFavouriteHtml(currentFavourite);
+        currentFavourite  = favourites[i];
+        favsHtml         += getPostFavouriteHtml(currentFavourite);
 
         isLastUser = (i == lastIndex);
         if (isLastUser) {
 
             if (shouldAddPlusCircle) {
                 favsHtml += `
-                <div class="plus-circle-count">
+                <div class = "plus-circle-count">
                     <div>
-                        <i class="fa fa-plus" aria-hidden="true"></i>
+                        <i class = "fa fa-plus" aria-hidden = "true"></i>
                         ` + plusCircleCount + `
                     </div>
                 </div>
                 `
             }
 
-            favsHtml += `</div>`
-            var howManyMore = favsCount - 1;
-            favsHtml += getPostFavouriteExtendedHtml(currentFavourite, howManyMore);
+                favsHtml    += `</div>`
+            var howManyMore  = favsCount - 1;
+                favsHtml    += getPostFavouriteExtendedHtml(currentFavourite, howManyMore);
         }
     }
 
@@ -546,8 +546,8 @@ function getPostFavouriteHtml(favourite) {
     
     var favsHtml = `
         <!-- circle-img-component -->
-        <div class="circle-img-component circle-img-component_extra-small">
-            <img src="` + favourite.image + `" alt="profile picture" />
+        <div class = "circle-img-component circle-img-component_extra-small">
+        <img src   = "` + favourite.image + `" alt = "profile picture" />
         </div>`;
 
     return favsHtml;
@@ -557,8 +557,8 @@ function getPostFavouriteHtml(favourite) {
 function getPostFavouriteExtendedHtml(favourite, howManyMore) {
     
     var favsHtml = `
-        <div class="list-of-users-that-liked">
-            <a href="">` + favourite.name +`
+        <div class = "list-of-users-that-liked">
+        <a   href  = "">` + favourite.name +`
                 <span>and ` + howManyMore + ` more</span>
             </a>
         </div>`;
@@ -572,11 +572,11 @@ function getPostCommentsIconHtml(comments, postId) {
     var number = comments;
 
     var commentsHtml = `
-    <div class="number-of-reactions comments--button" data-post-id='` + postId + `'>
-        <a href="">
-            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+    <div class = "number-of-reactions comments--button" data-post-id = '` + postId + `'>
+    <a   href  = "">
+    <i   class = "fa fa-commenting-o" aria-hidden                    = "true"></i>
         </a>
-        <span class="">` + number + `</span>
+        <span class = "">` + number + `</span>
     </div>
     `;
 
@@ -596,15 +596,15 @@ function getPostShareHtml(post) {
     var shareListHtml = getShareListHtml(post.shareList);
 
     var shareHtml = `
-    <div class="number-of-reactions share--container" data-post-id='` + postId + `'>
-        <a href="" class=" share--button">
-            <i class="fa fa-share-alt" aria-hidden="true"></i>
-            <span class="">` + number + `</span>
+    <div  class = "number-of-reactions share--container" data-post-id = '` + postId + `'>
+    <a    href  = "" class                                            = " share--button">
+    <i    class = "fa fa-share-alt" aria-hidden                       = "true"></i>
+    <span class = "">` + number + `</span>
         </a>
 
-        <div class="share-drop-down hide share--section">
-            <h3 class="share-drop-down__heading">Shared by:</h3>
-            <ul class='share--section--ul'>
+        <div class = "share-drop-down hide share--section">
+        <h3  class = "share-drop-down__heading">Shared by:</h3>
+        <ul  class = 'share--section--ul'>
             ` + shareListHtml + `
             </ul>
         </div>
@@ -619,32 +619,32 @@ function getExternalPostHtml(external) {
 
     if(external){
         var externalHtml = `
-        <div class="external-post">
+        <div class = "external-post">
             <!-- post-header -->
-            <header class="external-post__header">
+            <header class = "external-post__header">
 
-                <div class="side-circle-icon-wrapper">
-                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                <div class = "side-circle-icon-wrapper">
+                <i   class = "fa fa-circle-o" aria-hidden = "true"></i>
                 </div>
 
-                <div class="info-row-component info-row-component_align-center">
+                <div class = "info-row-component info-row-component_align-center">
 
-                    <div class="image-text-component">
-                        <div class="image-text-component__image">
+                    <div class = "image-text-component">
+                    <div class = "image-text-component__image">
 
                             <!-- circle-img-component -->
-                            <div class="circle-img-component circle-img-component_medium">
-                                <img src="` +  external.externalUserImg + `"
-                                    alt="progile image" />
+                            <div class = "circle-img-component circle-img-component_medium">
+                            <img src   = "` +  external.externalUserImg + `"
+                                 alt   = "progile image" />
 
                             </div>
                             
                         </div>
 
-                        <div class="image-text-component__text">
-                            <a href="` + external.externalUrl + `"  target="_blank">` + external.externalUserName + `</a>
+                        <div class = "image-text-component__text">
+                        <a   href  = "` + external.externalUrl + `"  target = "_blank">` + external.externalUserName + `</a>
 
-                            <span class="time-of-post">
+                            <span class = "time-of-post">
                                 3 days ago
                             </span>
                         </div>
@@ -655,7 +655,7 @@ function getExternalPostHtml(external) {
 
 
             <!-- post-header-item -->
-            <div class="external-post__text">
+            <div class = "external-post__text">
                 <p>
                     ` + external.externalPostText + `
                 </p>
@@ -672,14 +672,14 @@ function getExternalPostHtml(external) {
 
 function getPostCommentsHtml(postId) {
     
-    var postComments = allComments[postId];  
+    var postComments = allComments[postId];
 
     console.log("second allComments = ", allComments);
 
     var postCommentsHtml = ""
     for (let i = 0; i < postComments.length; i++) {
-        const comment = postComments[i];
-        postCommentsHtml += getPostCommentHtml(comment);
+        const comment           = postComments[i];
+              postCommentsHtml += getPostCommentHtml(comment);
     }
     
 
@@ -689,38 +689,38 @@ function getPostCommentsHtml(postId) {
 function getPostCommentHtml(comment) {
 
     var postCommentHtml = `
-    <div class="comment__item">
+    <div class = "comment__item">
 
         <!-- post-header -->
-        <section class="post-article__header">
+        <section class = "post-article__header">
 
-            <div class="info-row-component info-row-component_align-center">
+            <div class = "info-row-component info-row-component_align-center">
 
-                <div class="image-text-component">
-                    <div class="image-text-component__image">
+                <div class = "image-text-component">
+                <div class = "image-text-component__image">
 
                         <!-- circle-img-component -->
-                        <div class="circle-img-component circle-img-component_medium">
-                            <img src="` + comment.userImg + `" />
+                        <div class = "circle-img-component circle-img-component_medium">
+                        <img src   = "` + comment.userImg + `" />
                         </div>
                         
                     </div>
 
-                    <div class="image-text-component__text">
+                    <div class = "image-text-component__text">
                         <a>` + comment.userName + `</a>
 
-                        <span class="time-of-post">
+                        <span class = "time-of-post">
                             3h ago
                         </span>
                     </div>
                 </div>
 
                 <!-- drop-down-icon-wrapper -->
-                <div class="drop-down-icon-wrapper  drop--down--wrapper">
-                    <a href="">
-                        <i class="fa fa-circle" aria-hidden="true"></i>
-                        <i class="fa fa-circle" aria-hidden="true"></i>
-                        <i class="fa fa-circle" aria-hidden="true"></i>
+                <div class = "drop-down-icon-wrapper  drop--down--wrapper">
+                <a   href  = "">
+                <i   class = "fa fa-circle" aria-hidden = "true"></i>
+                <i   class = "fa fa-circle" aria-hidden = "true"></i>
+                <i   class = "fa fa-circle" aria-hidden = "true"></i>
                     </a>
                 </div>
 
@@ -729,8 +729,8 @@ function getPostCommentHtml(comment) {
         </section>
 
         <!-- post-content -->
-        <div class="comment__content">
-            <div class="comment__text">
+        <div class = "comment__content">
+        <div class = "comment__text">
                 <p>
                     ` + comment.commentText + `
                 </p>
@@ -739,17 +739,17 @@ function getPostCommentHtml(comment) {
 
 
         <!-- comment-footer -->
-        <div class="comment__footer">
+        <div class = "comment__footer">
 
             <!-- number-of-reactions -->
-            <div class="number-of-reactions">
-                <a href="">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
+            <div class = "number-of-reactions">
+            <a   href  = "">
+            <i   class = "fa fa-heart" aria-hidden = "true"></i>
                 </a>
-                <span class="">0</span>
+                <span class = "">0</span>
             </div>
             
-            <a href="" class="comment__replay">Replay</a>
+            <a href = "" class = "comment__replay">Replay</a>
         </div>
         
     </div>
@@ -829,63 +829,62 @@ function getShareListHtml(shareList) {
 function shareListItem(element) {
 
     var shareListItemHtml = `
-        <li class="share-drop-down__list">
-            <a href="` + element.url + `" target="_blank">` + element.name + `</a>
+        <li class = "share-drop-down__list">
+        <a  href  = "` + element.url + `" target = "_blank">` + element.name + `</a>
         </li>
     `
 
     return shareListItemHtml;
 }
 
-
+// post reaction icons
 function reactButtonClickHandler(button) {
-    // prevent default click on link behaviour
-    // e.preventDefault();
-
-    // HTML element which was clicked
-    // target = $(e.target);
-
-    // button = target.closest(".react--button")
 
     button.toggleClass("active");
 }
 
-function dropDownButtonClickHandler(e) {
-    e.preventDefault();
-
-    target = $(e.target);
-
-    console.log("target", target);
-
-    var dropDownWrapper = target.closest(".drop--down--wrapper");
-
-    console.log("dropDownWrapper", dropDownWrapper);
+// dropdown button click handler
+function dropDownButtonClickHandler(button) {
+    
+    var dropDownWrapper = button.closest(".drop--down--wrapper");
     var dropDownList = dropDownWrapper.find(".drop--down--list");
 
-    // If list was closed, it will be opened, so first close all other menus
+    /*
+    If clicked button has class hide,
+    first will close all other menus,
+    and then open menu of clicked button 
+    */
     if (dropDownList.hasClass("hide")) {
         closeAllMenus();
     }
 
     dropDownList.toggleClass("hide");
-    console.log("dropDownList", dropDownList);
-    
 }
 
+// favorite button / list function
 function favoriteClickedHandler(fav) {
 
-    var addUser = fav.hasClass("active");
+    // fav = .fav--react--button 
+    // postsCount = posts.length
 
-    // nadji post--container
-    var postContainer = fav.closest(".post--container"); 
+    /* 
+    1. find closest element that has class post--container 
+    2. from that post container get attribute for id 
+    3. currentPost is current JSON from posts array (at index i)
+    4. postWithGivenId holds the post (JSON) with the id from the post--container attribute
+    5. for loop is going through array of posts, 
+       assign post with index i to currentPost,
+       check if postId has same id as currenPost id,
+       if it's true, the current post is assigned to postWithGivenId
+    */
 
-    // uzmi data-post-id sa post--containera 
-    var postId = postContainer.attr("data-post-id");
+    var postContainer = fav.closest(".post--container");
+    var postId        = postContainer.attr("data-post-id");
 
     var currentPost;
+
     var postWithGivenId;
 
-    // nadji post sa tim postId-em 
     for (var i=0; i < postsCount; i++) {
         currentPost = posts[i];
         if (postId == currentPost.id) {
@@ -894,28 +893,39 @@ function favoriteClickedHandler(fav) {
         }
     }
 
-    var favs = postWithGivenId.favourites 
+    /*
+    1. addUser is a boolean variable determining
+       if the fav button has the 'active' class or not
+    2. favs var holds post's favorites array 
+    3. --if addUser was true (button has active class),
+       meaning the favorite button was clicked,
+    4. currentUserFav var is creating a new 'favourite' JSON
+       from the data of the current user
+    5. and it's pushed to favorites array
+       --if it's not true, 
+    6. for loop is going through favorites array,
+       checks if ids from current favourite and currentUser match
+       when they match, the JSON at that index (that holds currentUser) 
+       gets removed and the loop breaks
+    */
+
+    var addUser = fav.hasClass("active");
+    
+    var favs = postWithGivenId.favourites;
 
     if (addUser) {
 
-        // add me to favourites
-
         var currentUserFav = {
-            "id" : currentUser.id,
-            "name" : "You",
-            "image" : currentUser.image,
-            "profileLink" : currentUser.url
+            "id"         : currentUser.id,
+            "name"       : "You",
+            "image"      : currentUser.image,
+            "profileLink": currentUser.url
         }
 
         favs.push(currentUserFav);
 
     } else {
 
-        // remove me from favourites
-
-        // for loop, compare element id with current user id, if equal, remove and break
-
-        console.log("hola");
         for (var i = 0; i < favs.length; i ++) {
             
             if (favs[i].id == currentUser.id) {
@@ -925,33 +935,32 @@ function favoriteClickedHandler(fav) {
             }
         }
         
-    }    
+    }  // end of else   
     
+    /*
+    1. getPostFavouritesHtml function provides the html for favorites
+       this html gets saved in the newHtml variable so it can get updated
+    2. favSection holds element that has favourites--section class
+       where it pljusne updated version of favorites list html
+    */
 
-    var newHtml = getPostFavouritesHtml(favs);
-
-    // u post--container nadji favourites--section 
+    var newHtml    = getPostFavouritesHtml(favs);
     var favSection = postContainer.find(".favourites--section");
 
-    // pljusni newHtml u favourites--section
     favSection.html(newHtml);
     
 }
 
+// share button / list function
 function shareClickedHandler(share) {
 
-    var addUser = share.hasClass("active");
-
-    // nadji post--container
     var postContainer = share.closest(".post--container");
-
-    // uzmi data-post-id sa post--containera 
-    var postId = postContainer.attr("data-post-id");
+    var postId        = postContainer.attr("data-post-id");
 
     var currentId;
+
     var postWithNewId;
 
-    // nadji post sa tim postId-em 
     for (var i=0; i < postsCount; i++) {
         
         currentPost = posts[i];
@@ -964,21 +973,26 @@ function shareClickedHandler(share) {
 
     }
 
+    var addUser = share.hasClass("active");
+
     var shareList = postWithNewId.shareList;
 
-    // add me to shares
+
+    /*
+    -- if addUser is true, increase shareCount for 1
+    -- if addUser is false, decrease shareCount for 1
+    */
     if(addUser) {
 
         var currentUserShare = {
-            "id" : currentUser.id,
-            "name" : "you",
+            "id"  : currentUser.id,
+            "name": "you",
             "url" : currentUser.url
         }
 
         shareList.push(currentUserShare);
         postWithNewId.sharesCount++;
     } else {
-        // remove me from shares
 
         for ( var i = 0; i < shareList.length; i ++) {
 
@@ -989,17 +1003,13 @@ function shareClickedHandler(share) {
             }
         }
 
-
         postWithNewId.sharesCount--;
     }
 
 
     var newHtml = getPostShareHtml(postWithNewId);
-    // u post--container nadji favourites--section
     
     shareSection = postContainer.find(".share--container");
-
-    // pljusni newHtml u favourites--section
 
     shareSection.html(newHtml);
 
