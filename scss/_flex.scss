@@ -1,6 +1,8 @@
 @import 'variables';
 
-.flex__body h1, .flex__body h2, .flex__body button {
+.flex__body h1, 
+.flex__body h2,
+.card__button {
     font-family   : 'Pacifico', cursive;
     text-transform: capitalize;
 }
@@ -8,17 +10,25 @@
     margin-bottom: 35px;
 }
 
-.flex__body h2, .flex__body button {
+.flex__body h2, 
+.flex__body button {
     font-weight: 500;
 }
 
-.gallery, 
-.grid, 
-.media-section {
+.main-flex__section {
+    padding: 40px 40px 60px;
+}
+
+.main-flex__section_orange-bg {
     background-color: $light-orange;
     border-bottom   : 9px dashed $flex-green;
     color           : $flex-green;
-    padding         : 40px 40px 60px;
+}
+
+.main-flex__section_green-bg {
+    background-color: $flex-green;
+    border-bottom   : 9px dashed $light-orange;
+    color           : $light-orange;
 }
 
 .container-flex {
@@ -31,27 +41,17 @@
     display        : flex;
     flex-wrap      : wrap;
     justify-content: center;
-    img {
+    > img {
         cursor    : pointer;
+        height: 100px;
         transition: transform .3s;
+        width : 100px;
         &:hover {
             transform: scale(1.2);
         }
     }
 }
 
-.photo-wrapper > img {
-    height: 100px;
-    width : 100px;
-}
-
-// Cards
-.cards {
-    background-color: $flex-green;
-    border-bottom   : 9px dashed $light-orange;
-    color           : $light-orange;
-    padding         : 40px 40px 60px;
-}
 
 .card-wrapper {    
     display        : flex;
@@ -121,6 +121,10 @@
     }
 }
 
+.item__2 {
+    flex: 2;
+}
+
 // Media
 
 .media {
@@ -179,7 +183,7 @@
 //     flex: 1;
 //  }
 
-.main-article {
+.main-flex__wrapper {
     height  : calc(100vh - 20vh);
     overflow: auto;
 }
@@ -195,7 +199,8 @@
 
 .form__field {
     background-color: #fff;
-    flex: 1
+    flex: 1;
+    font-family: sans-serif;
 }
 
 .form__item {
