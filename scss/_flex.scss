@@ -1,14 +1,14 @@
 @import 'variables';
 
-h1, h2, button {
+.flex__body h1, .flex__body h2, .flex__body button {
     font-family   : 'Pacifico', cursive;
     text-transform: capitalize;
 }
-h1 {
+.flex__body h1 {
     margin-bottom: 35px;
 }
 
-h2, button {
+.flex__body h2, .flex__body button {
     font-weight: 500;
 }
 
@@ -168,7 +168,7 @@ h2, button {
  }
 
 // Have the nav and aside take up fixed widths:
- nav,
+ .flex__body nav,
  .flex__body aside {
     background-color: #5f5d60;
     width           : 20vw;

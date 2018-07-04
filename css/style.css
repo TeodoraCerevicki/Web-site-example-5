@@ -996,18 +996,18 @@
 }
 
 /* line 3, ../scss/_flex.scss */
-h1, h2, button {
+.flex__body h1, .flex__body h2, .flex__body button {
   font-family: 'Pacifico', cursive;
   text-transform: capitalize;
 }
 
 /* line 7, ../scss/_flex.scss */
-h1 {
+.flex__body h1 {
   margin-bottom: 35px;
 }
 
 /* line 11, ../scss/_flex.scss */
-h2, button {
+.flex__body h2, .flex__body button {
   font-weight: 500;
 }
 
@@ -1181,7 +1181,7 @@ h2, button {
 }
 
 /* line 171, ../scss/_flex.scss */
-nav,
+.flex__body nav,
 .flex__body aside {
   background-color: #5f5d60;
   width: 20vw;
