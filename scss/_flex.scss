@@ -150,7 +150,7 @@ h2, button {
 }
 // Web Layout
 
- body {
+ .flex__body {
     > header, > footer {
         background-color: #45c1a8;
         height          : 10vh;
@@ -162,14 +162,14 @@ h2, button {
  }
 
 // main must be made to fill the available remaining space within the flex-container
-main {
+.flex__body main {
     display: flex;
     flex   : 1;
  }
 
 // Have the nav and aside take up fixed widths:
  nav,
-aside {
+ .flex__body aside {
     background-color: #5f5d60;
     width           : 20vw;
 }
@@ -184,12 +184,12 @@ aside {
     overflow: auto;
 }
 
- // Re-order the flex-items so nav is displayed first:
-nav {
+// Re-order the flex-items so nav is displayed first:
+.flex__body nav {
     order: -1;
   }
 
-form {
+.flex__body form {
     display: flex;
 }
 
